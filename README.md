@@ -25,15 +25,15 @@ Zadate podatke ne menjati:
 
 ## Najmanje 4 obrasca (Code Patterns)
 - [ ] UML za svaki od obrazaca
-- [ ] Singleton (Logger)
-- [ ] Factory (wcf proxy factory)
+- [X] Singleton (NavigationService)
+- [X] Factory (ViewModelFactory)
 - [ ] Observer (INotifyPropertyChanged)
 - [ ] Command (Undo & Redo)
 
 # TODO
 - [ ] Prijava korisnika
 - [ ] Odjava korisnika
-- [ ] Kreiranje inicialnog admina ('admin', 'admin')
+- [X] Kreiranje inicialnog admina ('admin', 'admin')
   - [ ] Admin moze izvrsavati sve akcije
 - [ ] Kreairanje korisnika od strane admina (dozvoljeno kreiranje admina)
 - [ ] Azuriranje profila (id, username, password, name, lastName)
@@ -56,8 +56,8 @@ Zadate podatke ne menjati:
 
 ## Serverska aplikacija (WCF)
 - [ ] Podrzati vise klijenata odjednom
-- [ ] Podaci se cuvaju u bazu (Mongo | Postgres)
-- [ ] ServiceContract za klijentsku aplikaciju
+- [X] Podaci se cuvaju u bazu (Postgres & EF6)
+- [X] ServiceContract za klijentsku aplikaciju
 - [ ] Logovanje u tekstualnoj datoteci [Log4net](https://logging.apache.org/log4net/)
   - [ ] Logovanje na klijentu i serveru, informacije o vremenu kada se događaj odigrao, tipu događaja
 (DEBUG, INFO, WARN, ERROR, FATAL) i poruci koja opisuje sam događaj.

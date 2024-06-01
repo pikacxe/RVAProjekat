@@ -1,25 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace RVAProject.ClientApp.Modules
 {
-    internal class AppCommand : ICommand
+    public class AppAsyncCommand : ICommand
     {
-        private readonly Action _executeMethod;
+        private readonly Func<Task> _executeMethodAsync;
         private readonly Func<bool> _canExecuteMethod;
 
-        public AppCommand(Action executeMethod)
+        public AppAsyncCommand(Func<Task> executeMethodAsync)
         {
-            _executeMethod = executeMethod;
+            _executeMethodAsync = executeMethodAsync;
         }
 
-        public AppCommand(Action executeMethod, Func<bool> canExecuteMethod)
+        public AppAsyncCommand(Func<Task> executeMethodAsync, Func<bool> canExecuteMethod)
         {
-            _executeMethod = executeMethod;
+            _executeMethodAsync = executeMethodAsync;
             _canExecuteMethod = canExecuteMethod;
         }
 
@@ -35,28 +32,28 @@ namespace RVAProject.ClientApp.Modules
 
         public event EventHandler CanExecuteChanged = delegate { };
 
-        void ICommand.Execute(object parameter)
+        async void ICommand.Execute(object parameter)
         {
-            if (_executeMethod != null)
+            if (_executeMethodAsync != null)
             {
-                _executeMethod();
+                await _executeMethodAsync();
             }
         }
     }
 
-    public class AppCommand<T> : ICommand
+    public class AppAsyncCommand<T> : ICommand
     {
-        private readonly Action<T> _TargetExecuteMethod;
+        private readonly Func<T, Task> _TargetExecuteMethodAsync;
         private readonly Func<T, bool> _TargetCanExecuteMethod;
 
-        public AppCommand(Action<T> executeMethod)
+        public AppAsyncCommand(Func<T, Task> executeMethodAsync)
         {
-            _TargetExecuteMethod = executeMethod;
+            _TargetExecuteMethodAsync = executeMethodAsync;
         }
 
-        public AppCommand(Action<T> executeMethod, Func<T, bool> canExecuteMethod)
+        public AppAsyncCommand(Func<T, Task> executeMethodAsync, Func<T, bool> canExecuteMethod)
         {
-            _TargetExecuteMethod = executeMethod;
+            _TargetExecuteMethodAsync = executeMethodAsync;
             _TargetCanExecuteMethod = canExecuteMethod;
         }
 
@@ -74,16 +71,16 @@ namespace RVAProject.ClientApp.Modules
                 return _TargetCanExecuteMethod(tparm);
             }
 
-            return _TargetExecuteMethod != null;
+            return _TargetExecuteMethodAsync != null;
         }
 
         public event EventHandler CanExecuteChanged = delegate { };
 
-        void ICommand.Execute(object parameter)
+        async void ICommand.Execute(object parameter)
         {
-            if (_TargetExecuteMethod != null && parameter is T tparm)
+            if (_TargetExecuteMethodAsync != null && parameter is T tparm)
             {
-                _TargetExecuteMethod(tparm);
+                await _TargetExecuteMethodAsync(tparm);
             }
         }
 

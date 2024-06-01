@@ -5,6 +5,7 @@ namespace RVAProject.ClientApp.ViewModels
 {
     public class BindableBase : INotifyPropertyChanged
     {
+        public string Title { get; set; }
         protected virtual void SetProperty<T>(ref T member, T val,
           [CallerMemberName] string propertyName = null)
         {
