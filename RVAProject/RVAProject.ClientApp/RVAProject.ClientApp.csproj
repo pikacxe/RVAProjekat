@@ -133,10 +133,6 @@
       <Project>{65aa98b6-a2b8-4776-b926-437e6312958e}</Project>
       <Name>RVAProject.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RVAProject.Contracts\RVAProject.Contracts.csproj">
-      <Project>{eb1be3a4-8404-4929-ba14-33e38386a270}</Project>
-      <Name>RVAProject.Contracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
