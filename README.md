@@ -25,9 +25,9 @@ Zadate podatke ne menjati:
 
 ## Najmanje 4 obrasca (Code Patterns)
 - [ ] UML za svaki od obrazaca
-- [ ] Singleton (?DBconn?)
-- [ ] Factory (wcf proxy factory )
-- [ ] Template (kreiranje komandi)
+- [ ] Singleton (Logger)
+- [ ] Factory (wcf proxy factory)
+- [ ] Observer (INotifyPropertyChanged)
 - [ ] Command (Undo & Redo)
 
 # TODO
@@ -46,11 +46,11 @@ Zadate podatke ne menjati:
   - [ ] Knjiga
   - [ ] Autora
 - [ ] Dupliranje izdavaca
-- [ ] Osvezavanje prikaza (po potrebi | timer | na zahtev)
+- [ ] Osvezavanje prikaza (na zahtev)
 - [ ] Omoguciti rad vise instanci programa (bar 2 korisnika istovremeno)
-- [ ] Detektovanje konfikta (?object lock | db transaction?)
-  - [ ] Odbaci svoje izmene
-  - [ ] Odbaci tudje izmene
+- [ ] Detektovanje konfikta (DbUpdateConcurrencyException)
+  - [ ] Odbaci svoje izmene (Reload)
+  - [ ] Odbaci tudje izmene (Overwrite)
 - [ ] Tabela obavestenja, svako obavestenje novi red
 
 
