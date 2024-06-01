@@ -1,9 +1,8 @@
 ﻿namespace RVAProject.Common.Migrations
 {
+    using RVAProject.Common.Entities;
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<RVAProject.Common.LibraryDbContext>
     {
@@ -14,10 +13,16 @@
 
         protected override void Seed(RVAProject.Common.LibraryDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            context.Users.Add(new User
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Zlatko",
+                LastName = "Cikic",
+                isAdmin = true,
+                Password = "admin",
+                Username = "admin"
+            });
+            context.SaveChanges();
         }
     }
 }

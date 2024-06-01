@@ -1,7 +1,5 @@
 ﻿using RVAProject.ClientApp.Modules;
-using RVAProject.Contracts;
 using System;
-using System.ServiceModel;
 using System.Threading.Tasks;
 
 namespace RVAProject.ClientApp.ViewModels
@@ -32,11 +30,11 @@ namespace RVAProject.ClientApp.ViewModels
         {
             try
             {
-                var factory = new ChannelFactory<ILibraryService>("LibraryService");
-                var proxy = factory.CreateChannel();
+                BookService.BookServiceClient bookClient = new
+                    BookService.BookServiceClient();
 
-                TestMessage = await proxy.HelloWorldAsync();
-                factory.Close();
+                await bookClient.DoWorkAsync();
+                TestMessage = "Radi";
             }
             catch (Exception ex)
             {
