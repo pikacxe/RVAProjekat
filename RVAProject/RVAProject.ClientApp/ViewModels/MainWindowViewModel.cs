@@ -2,6 +2,7 @@
 using RVAProject.Contracts;
 using System;
 using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace RVAProject.ClientApp.ViewModels
 {
@@ -24,16 +25,17 @@ namespace RVAProject.ClientApp.ViewModels
         public AppCommand TestCommand { get; private set; }
         public MainWindowViewModel()
         {
-            TestCommand = new AppCommand(TestService);
+            TestCommand = new AppCommand(TestServiceAsync);
         }
 
-        private void TestService()
+        private async Task TestServiceAsync()
         {
             try
             {
                 var factory = new ChannelFactory<ILibraryService>("LibraryService");
                 var proxy = factory.CreateChannel();
-                TestMessage = proxy.HelloWorld();
+
+                TestMessage = await proxy.HelloWorldAsync();
                 factory.Close();
             }
             catch (Exception ex)

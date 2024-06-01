@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace RVAProject.Contracts
 {
@@ -8,6 +9,6 @@ namespace RVAProject.Contracts
     {
         [OperationContract]
         [FaultContract(typeof(ApplicationException))]
-        string HelloWorld();
+        Task<string> HelloWorldAsync();
     }
 }
