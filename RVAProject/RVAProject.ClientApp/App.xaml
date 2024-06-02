@@ -1,9 +1,64 @@
 ﻿<Application x:Class="RVAProject.ClientApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RVAProject.ClientApp"
+             xmlns:local="clr-namespace:RVAProject.ClientApp" 
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- Define main color brushes -->
+        <SolidColorBrush x:Key="PrimaryColor" Color="#5A9C7E"/>
+        <SolidColorBrush x:Key="SecondaryColor" Color="#CDFBE4"/>
+        <SolidColorBrush x:Key="DarkColor" Color="#004C74"/>
+        <SolidColorBrush x:Key="TextColor" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="AccentColor" Color="#04E09E"/>
+
+        <!-- Main window default styles -->
+        <Style TargetType="Window" x:Key="MainWindows">
+            <Setter Property="Background" Value="{StaticResource DarkColor}"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <!-- Style for TextBlock -->
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+        </Style>
+        <!-- for Headers -->
+        <Style TargetType="Label" x:Key="Header">
+            <Setter Property="Foreground" Value="{StaticResource DarkColor}"/>
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Label">
+                        <Border BorderBrush="{StaticResource AccentColor}" BorderThickness="0,0,0,2">
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Style for TextBox -->
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="{StaticResource DarkColor}"/>
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentColor}"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <!-- Style for Label -->
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+        </Style>
+
+        <!-- Style for Button -->
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentColor}"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
     </Application.Resources>
 </Application>

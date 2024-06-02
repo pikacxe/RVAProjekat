@@ -22,13 +22,11 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock
+            <Label
             Grid.Row="0"
-            FontSize="60"
-            TextAlignment="Center"
-            VerticalAlignment="Center"
-            Text="Login"/>
-        <Label
+            Style="{StaticResource Header}"
+            Content="Login"/>
+            <Label
             Grid.Row="1"
             VerticalAlignment="Bottom"
             Margin="5"

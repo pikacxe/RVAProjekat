@@ -7,6 +7,7 @@
         xmlns:viewModel="clr-namespace:RVAProject.ClientApp.ViewModels"
         xmlns:view ="clr-namespace:RVAProject.ClientApp.Views"
         mc:Ignorable="d"
+        Style="{StaticResource MainWindows}"
         Title="{Binding CurrentView.Title}" Height="450" Width="800">
     <Window.DataContext>
         <viewModel:MainWindowViewModel/>
