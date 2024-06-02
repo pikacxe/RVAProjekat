@@ -9,7 +9,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using ApplicationException = RVAProject.Common.ApplicationException;
 
 namespace RVAProject.AppServices
 {
@@ -30,7 +29,7 @@ namespace RVAProject.AppServices
 
             if (existingUser != null)
             {
-                throw new ApplicationException("User already exists");
+                throw new CustomAppException("User already exists");
             }
 
             var user = new User
@@ -51,7 +50,7 @@ namespace RVAProject.AppServices
 
             if (existingUser == null)
             {
-                throw new ApplicationException("User does not exist");
+                throw new CustomAppException("User does not exist");
             }
 
             existingUser.FirstName = updateUserRequest.FirstName;
@@ -66,7 +65,7 @@ namespace RVAProject.AppServices
 
             if (existingUser == null)
             {
-                throw new ApplicationException("Invalid credentials");
+                throw new CustomAppException("Invalid credentials");
             }
             else
             {

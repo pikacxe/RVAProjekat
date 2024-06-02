@@ -6,7 +6,6 @@ using RVAProject.Common.Repositories.Impl;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ApplicationException = RVAProject.Common.ApplicationException;
 
 namespace RVAProject.AppServices
 {
@@ -24,7 +23,7 @@ namespace RVAProject.AppServices
         {
             if (createBookRequest == null)
             {
-                throw new ApplicationException("Book creation failed. Invalid data.");
+                throw new CustomAppException("Book creation failed. Invalid data.");
             }
             try
             {
@@ -40,7 +39,7 @@ namespace RVAProject.AppServices
             catch (Exception ex)
             {
                 // TODO log exception
-                throw new ApplicationException("Server error");
+                throw new CustomAppException("Server error");
             }
         }
 
@@ -49,7 +48,7 @@ namespace RVAProject.AppServices
             var existingBook = await _bookRepository.GetBookById(id);
             if(existingBook == default(Book))
             {
-                throw new ApplicationException("Book not found");
+                throw new CustomAppException("Book not found");
             }
             await _bookRepository.DeleteBook(existingBook);
         }
@@ -65,7 +64,7 @@ namespace RVAProject.AppServices
             var existingBook = await _bookRepository.GetBookById(id);
             if (existingBook == default(Book))
             {
-                throw new ApplicationException("Book not found");
+                throw new CustomAppException("Book not found");
             }
             return existingBook.AsBookInfo();
         }
@@ -75,7 +74,7 @@ namespace RVAProject.AppServices
             var existingBook = await _bookRepository.GetBook(b => b.Title.Contains(partialName));
             if (existingBook == default(Book))
             {
-                throw new ApplicationException("Book not found");
+                throw new CustomAppException("Book not found");
             }
             return existingBook.AsBookInfo();
         }
@@ -85,7 +84,7 @@ namespace RVAProject.AppServices
             var existingBook = await _bookRepository.GetBookById(updateBookRequest.Id);
             if (existingBook == default(Book))
             {
-                throw new ApplicationException("Book not found");
+                throw new CustomAppException("Book not found");
             }
             existingBook.Title = updateBookRequest.Title;
             existingBook.Description = updateBookRequest.Description;
