@@ -1,5 +1,9 @@
-﻿using System.ServiceModel;
+﻿using RVAProject.Common.DTOs.BookDTO;
+using System;
+using System.Collections.Generic;
+using System.ServiceModel;
 using System.Threading.Tasks;
+using ApplicationException = RVAProject.Common.ApplicationException;
 
 namespace RVAProject.AppServices
 {
@@ -8,6 +12,21 @@ namespace RVAProject.AppServices
     public interface IBookService
     {
         [OperationContract]
-        Task DoWorkAsync();
+        [FaultContract(typeof(ApplicationException))]
+        Task<BookInfo> GetBookByIdAsync(Guid id);
+        [OperationContract]
+        Task<IEnumerable<BookInfo>> GetAllAsync();
+        [OperationContract]
+        [FaultContract(typeof(ApplicationException))]
+        Task<BookInfo> GetBookByPartialNameAsync(string partialName);
+        [OperationContract]
+        [FaultContract(typeof(ApplicationException))]
+        Task CreateBookAsync(CreateBookRequest createBookRequest);
+        [OperationContract]
+        [FaultContract(typeof(ApplicationException))]
+        Task DeleteBookAsync(Guid id);
+        [OperationContract]
+        [FaultContract(typeof(ApplicationException))]
+        Task UpdateBookAsync(UpdateBookRequest updateBookRequest);
     }
 }

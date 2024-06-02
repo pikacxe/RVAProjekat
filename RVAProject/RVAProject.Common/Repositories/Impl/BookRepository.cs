@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace RVAProject.Common.Repositories.Impl
@@ -30,6 +32,17 @@ namespace RVAProject.Common.Repositories.Impl
         public async Task<IEnumerable<Book>> GetAllBooks()
         {
             return await _dbContext.Books.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Book>> GetAllBooks(Expression<Func<Book, bool>> predicate)
+        {
+            return await _dbContext.Books.Where(predicate).ToListAsync();
+        }
+
+        public async Task<Book> GetBook(Expression<Func<Book, bool>> predicate)
+        {
+            return await _dbContext.Books.Include(book => book.Authors)
+                .Include(book => book.Publisher).FirstOrDefaultAsync(predicate);
         }
 
         public async Task<Book> GetBookById(Guid id)
