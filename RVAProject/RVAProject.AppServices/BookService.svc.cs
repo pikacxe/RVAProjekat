@@ -11,10 +11,10 @@ namespace RVAProject.AppServices
     // NOTE: In order to launch WCF Test Client for testing this service, please select BookService.svc or BookService.svc.cs at the Solution Explorer and start debugging.
     public class BookService : IBookService
     {
-        private IBookRepository _userRepository;
+        private IBookRepository _bookRepository;
         public BookService()
         {
-            _userRepository = new BookRepository(new LibraryDbContext());
+            _bookRepository = new BookRepository(new LibraryDbContext());
         }
         public async Task DoWorkAsync()
         {
@@ -24,7 +24,7 @@ namespace RVAProject.AppServices
                 Title = "Knjiga",
             };
 
-            await _userRepository.AddBook(book);
+            await _bookRepository.AddBook(book);
         }
     }
 }

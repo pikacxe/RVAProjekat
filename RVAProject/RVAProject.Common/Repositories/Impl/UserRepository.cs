@@ -24,6 +24,11 @@ namespace RVAProject.Common.Repositories.Impl
             return await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
         }
 
+        public async Task<User> GetUserByUsername(string username)
+        {
+            return await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == username);
+        }
+
         public async Task SaveChangesUser()
         {
             await _dbContext.SaveChangesAsync();
