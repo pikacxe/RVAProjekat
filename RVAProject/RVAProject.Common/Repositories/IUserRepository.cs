@@ -9,5 +9,6 @@ namespace RVAProject.Common.Repositories
         Task AddUser(User user);
         Task SaveChangesUser();
         Task<User> GetUserById(Guid id);
+        Task<User> GetUserByUsername(string username);
     }
 }
