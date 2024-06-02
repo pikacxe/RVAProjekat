@@ -1,45 +1,25 @@
 ﻿using RVAProject.ClientApp.Modules;
 using System;
+using System.Collections.Generic;
+using System.ServiceModel;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace RVAProject.ClientApp.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        private string testMessage = string.Empty;
-        public string TestMessage
-        {
-            get => testMessage;
-            set
-            {
-                if (value != testMessage)
-                {
-                    testMessage = value;
-                    OnPropertyChanged(nameof(TestMessage));
-                }
-            }
-        }
 
-        public AppCommand TestCommand { get; private set; }
+        private string connectionMessage = string.Empty;
+        public string ConnectionMessage
+        {
+            get => connectionMessage;
+            set => SetProperty(ref connectionMessage, value);
+        }
         public MainWindowViewModel()
         {
-            TestCommand = new AppCommand(TestServiceAsync);
-        }
-
-        private async Task TestServiceAsync()
-        {
-            try
-            {
-                BookService.BookServiceClient bookClient = new
-                    BookService.BookServiceClient();
-
-                await bookClient.DoWorkAsync();
-                TestMessage = "Radi";
-            }
-            catch (Exception ex)
-            {
-                TestMessage = ex.Message;
-            }
+            connectionMessage = "Not connected";
         }
     }
 }
