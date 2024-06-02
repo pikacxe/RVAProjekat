@@ -104,7 +104,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationException.cs" />
+    <Compile Include="CustomAppException.cs" />
     <Compile Include="DTOs\AuthorDTO\AuthorInfo.cs" />
     <Compile Include="DTOs\AuthorDTO\Extensions.cs" />
     <Compile Include="DTOs\BookDTO\BookInfo.cs" />

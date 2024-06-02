@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using ApplicationException = RVAProject.Common.ApplicationException;
+using RVAProject.Common;
 
 namespace RVAProject.AppServices
 {
@@ -12,21 +12,21 @@ namespace RVAProject.AppServices
     public interface IBookService
     {
         [OperationContract]
-        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(CustomAppException))]
         Task<BookInfo> GetBookByIdAsync(Guid id);
         [OperationContract]
         Task<IEnumerable<BookInfo>> GetAllAsync();
         [OperationContract]
-        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(CustomAppException))]
         Task<BookInfo> GetBookByPartialNameAsync(string partialName);
         [OperationContract]
-        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(CustomAppException))]
         Task CreateBookAsync(CreateBookRequest createBookRequest);
         [OperationContract]
-        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(CustomAppException))]
         Task DeleteBookAsync(Guid id);
         [OperationContract]
-        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(CustomAppException))]
         Task UpdateBookAsync(UpdateBookRequest updateBookRequest);
     }
 }

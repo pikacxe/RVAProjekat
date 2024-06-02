@@ -10,15 +10,15 @@ namespace RVAProject.AppServices
     public interface IUserService
     {
         [OperationContract]
-        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(CustomAppException))]
         Task<string> LogIn(LogInRequest logInData);
 
         [OperationContract]
-        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(CustomAppException))]
         Task AddUser(UserRequest addUserData);
 
         [OperationContract]
-        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(CustomAppException))]
         Task UpdateUser(UpdateUserRequest updateUserData);
     }
 }
