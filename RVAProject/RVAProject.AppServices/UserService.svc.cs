@@ -53,7 +53,7 @@ namespace RVAProject.AppServices
                 throw new CustomAppException("User does not exist");
             }
 
-            return new UserInfo { FirstName = existingUser.FirstName, LastName = existingUser.LastName };
+            return existingUser.AsUserInfo();
         }
 
         public async Task UpdateUser(UpdateUserRequest updateUserRequest)

@@ -113,6 +113,9 @@
     <Compile Include="DTOs\BookDTO\UpdateBookRequest.cs" />
     <Compile Include="DTOs\PublisherDTO\Extensions.cs" />
     <Compile Include="DTOs\PublisherDTO\PublisherInfo.cs" />
+    <Compile Include="DTOs\PublisherDTO\PublisherRequest.cs" />
+    <Compile Include="DTOs\PublisherDTO\UpdatePublisherRequest.cs" />
+    <Compile Include="DTOs\UserDTO\Extensions.cs" />
     <Compile Include="DTOs\UserDTO\LogInRequest.cs" />
     <Compile Include="DTOs\UserDTO\UpdateUserRequest.cs" />
     <Compile Include="DTOs\UserDTO\UserInfo.cs" />

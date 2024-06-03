@@ -1,12 +1,10 @@
-﻿using RVAProject.Common.DTOs.BookDTO;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace RVAProject.Common.DTOs.PublisherDTO
 {
     [DataContract]
-    public class PublisherInfo
+    public class UpdatePublisherRequest
     {
         [DataMember]
         public Guid Id { get; set; }
@@ -16,7 +14,5 @@ namespace RVAProject.Common.DTOs.PublisherDTO
         public string Email { get; set; }
         [DataMember]
         public string Address { get; set; }
-        [DataMember]
-        public List<BookInfo> Books { get; set; }
     }
 }

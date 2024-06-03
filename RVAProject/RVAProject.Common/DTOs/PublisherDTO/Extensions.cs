@@ -1,9 +1,7 @@
-﻿using System;
+﻿using RVAProject.Common.DTOs.BookDTO;
+using RVAProject.Common.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using RVAProject.Common.Entities;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RVAProject.Common.DTOs.PublisherDTO
 {
@@ -15,8 +13,24 @@ namespace RVAProject.Common.DTOs.PublisherDTO
             {
                 Id = publisher.Id,
                 Name = publisher.Name,
+                Email = publisher.Email,
+                Address = publisher.Address,
+                Books = publisher.Books.AsBookInfoList().ToList()
             };
             return publisherInfo;
+        }
+
+        public static IEnumerable<PublisherInfo> AsPublisherInfoList(this IEnumerable<Publisher> publishers)
+        {
+            var publisherInfoList = new List<PublisherInfo>();
+            if (publishers != null)
+            {
+                foreach (var publisher in publishers)
+                {
+                    publisherInfoList.Add(publisher.AsPublisherInfo());
+                }
+            }
+            return publisherInfoList;
         }
     }
 }
