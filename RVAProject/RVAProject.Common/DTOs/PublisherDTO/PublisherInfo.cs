@@ -1,9 +1,7 @@
-﻿using System;
+﻿using RVAProject.Common.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RVAProject.Common.DTOs.PublisherDTO
 {
@@ -12,7 +10,9 @@ namespace RVAProject.Common.DTOs.PublisherDTO
     {
         [DataMember]
         public Guid Id { get; set; }
-        [DataMember]
         public string Name { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public List<Book> Books { get; set; }
     }
 }

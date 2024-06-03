@@ -115,6 +115,7 @@
     <Compile Include="DTOs\PublisherDTO\PublisherInfo.cs" />
     <Compile Include="DTOs\UserDTO\LogInRequest.cs" />
     <Compile Include="DTOs\UserDTO\UpdateUserRequest.cs" />
+    <Compile Include="DTOs\UserDTO\UserInfo.cs" />
     <Compile Include="DTOs\UserDTO\UserRequest.cs" />
     <Compile Include="Entities\Author.cs" />
     <Compile Include="Entities\Book.cs" />
