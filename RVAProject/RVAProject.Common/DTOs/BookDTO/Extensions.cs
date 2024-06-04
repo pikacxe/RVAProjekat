@@ -1,9 +1,5 @@
-﻿using System;
+﻿using RVAProject.Common.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RVAProject.Common.Entities;
 
 namespace RVAProject.Common.DTOs.BookDTO
 {
@@ -23,9 +19,12 @@ namespace RVAProject.Common.DTOs.BookDTO
         public static IEnumerable<BookInfo> AsBookInfoList(this IEnumerable<Book> books)
         {
             var bookInfoList = new List<BookInfo>();
-            foreach (var book in books)
+            if (books != null)
             {
-                bookInfoList.Add(book.AsBookInfo());
+                foreach (var book in books)
+                {
+                    bookInfoList.Add(book.AsBookInfo());
+                }
             }
             return bookInfoList;
         }

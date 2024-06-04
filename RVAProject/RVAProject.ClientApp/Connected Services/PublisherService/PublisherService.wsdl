@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="PublisherService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common" />
+      <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" />
+      <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPublisherService_AddPublisher_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPublisher" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_AddPublisher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPublisherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_AddPublisher_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q1:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_GetAllPublishers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPublishers" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_GetAllPublishers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPublishersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_GetAllPublishers_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q2:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_GetPublisherById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublisherById" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_GetPublisherById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublisherByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_GetPublisherById_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q3:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_UpdatePublisher_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePublisher" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_UpdatePublisher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePublisherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_UpdatePublisher_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q4:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_DeletePublisher_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePublisher" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_DeletePublisher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePublisherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_DeletePublisher_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q5:CustomAppException" />
+  </wsdl:message>
+  <wsdl:portType name="IPublisherService">
+    <wsdl:operation name="AddPublisher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublisherService/AddPublisher" message="tns:IPublisherService_AddPublisher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublisherService/AddPublisherResponse" message="tns:IPublisherService_AddPublisher_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPublisherService/AddPublisherCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IPublisherService_AddPublisher_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPublishers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublisherService/GetAllPublishers" message="tns:IPublisherService_GetAllPublishers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublisherService/GetAllPublishersResponse" message="tns:IPublisherService_GetAllPublishers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPublisherService/GetAllPublishersCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IPublisherService_GetAllPublishers_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublisherById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublisherService/GetPublisherById" message="tns:IPublisherService_GetPublisherById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublisherService/GetPublisherByIdResponse" message="tns:IPublisherService_GetPublisherById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPublisherService/GetPublisherByIdCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IPublisherService_GetPublisherById_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePublisher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublisherService/UpdatePublisher" message="tns:IPublisherService_UpdatePublisher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublisherService/UpdatePublisherResponse" message="tns:IPublisherService_UpdatePublisher_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPublisherService/UpdatePublisherCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IPublisherService_UpdatePublisher_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePublisher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublisherService/DeletePublisher" message="tns:IPublisherService_DeletePublisher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublisherService/DeletePublisherResponse" message="tns:IPublisherService_DeletePublisher_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPublisherService/DeletePublisherCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IPublisherService_DeletePublisher_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPublisherService" type="tns:IPublisherService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPublisher">
+      <soap:operation soapAction="http://tempuri.org/IPublisherService/AddPublisher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPublishers">
+      <soap:operation soapAction="http://tempuri.org/IPublisherService/GetAllPublishers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublisherById">
+      <soap:operation soapAction="http://tempuri.org/IPublisherService/GetPublisherById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePublisher">
+      <soap:operation soapAction="http://tempuri.org/IPublisherService/UpdatePublisher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePublisher">
+      <soap:operation soapAction="http://tempuri.org/IPublisherService/DeletePublisher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PublisherService">
+    <wsdl:port name="BasicHttpBinding_IPublisherService" binding="tns:BasicHttpBinding_IPublisherService">
+      <soap:address location="http://localhost:56951/PublisherService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

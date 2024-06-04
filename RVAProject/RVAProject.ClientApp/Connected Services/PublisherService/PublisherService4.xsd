@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfBookInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookInfo" nillable="true" type="tns:BookInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBookInfo" nillable="true" type="tns:ArrayOfBookInfo" />
+  <xs:complexType name="BookInfo">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="BookInfo" nillable="true" type="tns:BookInfo" />
+</xs:schema>
