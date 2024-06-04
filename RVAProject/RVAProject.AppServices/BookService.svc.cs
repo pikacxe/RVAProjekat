@@ -32,7 +32,7 @@ namespace RVAProject.AppServices
                 {
                     Id = Guid.NewGuid(),
                     Title = createBookRequest.Title,
-                    Description = createBookRequest.Description,
+                    Description = createBookRequest.Description
                 };
                 await _bookRepository.AddBook(newBook);
             }
@@ -46,7 +46,7 @@ namespace RVAProject.AppServices
         public async Task DeleteBookAsync(Guid id)
         {
             var existingBook = await _bookRepository.GetBookById(id);
-            if(existingBook == default(Book))
+            if (existingBook == default(Book))
             {
                 throw new CustomAppException("Book not found");
             }

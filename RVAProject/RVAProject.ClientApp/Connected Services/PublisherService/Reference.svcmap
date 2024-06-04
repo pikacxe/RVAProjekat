@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="02588c5b-d660-4ef6-afd8-01329c7ba7ee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:56951/PublisherService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PublisherService.wsdl" MetadataType="Wsdl" ID="5afb3d79-d419-4800-b531-8780f7cfa675" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?wsdl" />
+    <MetadataFile FileName="PublisherService.disco" MetadataType="Disco" ID="742042e6-d754-4ae4-b412-e30c3c59cf11" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?disco" />
+    <MetadataFile FileName="PublisherService.xsd" MetadataType="Schema" ID="b7793f27-3196-4c03-a092-59a583bb09d0" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PublisherService1.xsd" MetadataType="Schema" ID="940330f6-0717-4352-b105-4222ee1a766f" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PublisherService2.xsd" MetadataType="Schema" ID="8e081378-4688-481a-82ce-7be85e7d7b50" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PublisherService3.xsd" MetadataType="Schema" ID="608041fd-0225-4d6b-9b06-c6aa21a9bf6d" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PublisherService4.xsd" MetadataType="Schema" ID="835efd07-742d-40bc-95bd-0f7a634e00d4" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PublisherService5.xsd" MetadataType="Schema" ID="d4c40f49-eff6-465e-8618-6a2accb12fbd" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

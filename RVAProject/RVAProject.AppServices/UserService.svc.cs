@@ -44,6 +44,18 @@ namespace RVAProject.AppServices
 
             await _userRepository.AddUser(user);
         }
+        public async Task<UserInfo> GetUserById(Guid id)
+        {
+            var existingUser = await _userRepository.GetUserById(id);
+
+            if (existingUser == null)
+            {
+                throw new CustomAppException("User does not exist");
+            }
+
+            return existingUser.AsUserInfo();
+        }
+
         public async Task UpdateUser(UpdateUserRequest updateUserRequest)
         {
             var existingUser = await _userRepository.GetUserById(updateUserRequest.Id);

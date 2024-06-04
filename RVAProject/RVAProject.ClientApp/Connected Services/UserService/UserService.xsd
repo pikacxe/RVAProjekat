@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.UserDTO" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.UserDTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:56951/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="LogInRequest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
-    </xs:sequence>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RVAProject.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RVAProject.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56951/UserService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:complexType name="CustomAppException">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System" base="q1:Exception" />
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="LogInRequest" nillable="true" type="tns:LogInRequest" />
-  <xs:complexType name="UserRequest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="isAdmin" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="UserRequest" nillable="true" type="tns:UserRequest" />
-  <xs:complexType name="UpdateUserRequest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="UpdateUserRequest" nillable="true" type="tns:UpdateUserRequest" />
+  <xs:element name="CustomAppException" nillable="true" type="tns:CustomAppException" />
 </xs:schema>
