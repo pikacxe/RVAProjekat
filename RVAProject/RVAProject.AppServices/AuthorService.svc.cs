@@ -42,6 +42,10 @@ namespace RVAProject.AppServices
         public async Task DeleteAuthor(Guid id)
         {
             var author = await _authorRepository.GetAuthorById(id);
+            if (author == null)
+            {
+                throw new CustomAppException("User does not exist");
+            }
             await _authorRepository.DeleteAuthor(author);
         }
 
