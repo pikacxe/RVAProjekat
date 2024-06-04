@@ -147,15 +147,19 @@
     <Compile Include="Services\Impl\ClientUserService.cs" />
     <Compile Include="Services\IClientPublisherService.cs" />
     <Compile Include="Services\IClientUserService.cs" />
-    <Compile Include="ViewModels\AuthorDashboardViewModel.cs" />
+    <Compile Include="ViewModels\Author\AuthorDashboardViewModel.cs" />
+    <Compile Include="ViewModels\Author\AuthorFormViewModel.cs" />
+    <Compile Include="ViewModels\Author\AuthorServiceClient.cs" />
     <Compile Include="ViewModels\BindableBase.cs" />
-    <Compile Include="ViewModels\BookDashboardViewModel.cs" />
+    <Compile Include="ViewModels\Book\BookDashboardViewModel.cs" />
+    <Compile Include="ViewModels\Book\BookFormViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\PublisherDashboardViewModel.cs" />
-    <Compile Include="ViewModels\AddUserViewModel.cs" />
-    <Compile Include="ViewModels\UpdateUserViewModel.cs" />
+    <Compile Include="ViewModels\Publisher\PublisherDashboardViewModel.cs" />
+    <Compile Include="ViewModels\Publisher\PublisherFormViewModel.cs" />
+    <Compile Include="ViewModels\User\AddUserViewModel.cs" />
+    <Compile Include="ViewModels\User\UserFormViewModel.cs" />
     <Compile Include="Views\AddAuthorView.xaml.cs">
       <DependentUpon>AddAuthorView.xaml</DependentUpon>
     </Compile>

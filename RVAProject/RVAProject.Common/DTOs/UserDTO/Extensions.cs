@@ -8,6 +8,7 @@ namespace RVAProject.Common.DTOs.UserDTO
         {
             var userInfo = new UserInfo()
             {
+                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
             };

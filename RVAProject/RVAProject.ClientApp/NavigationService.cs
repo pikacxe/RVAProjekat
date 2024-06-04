@@ -37,9 +37,9 @@ namespace RVAProject.ClientApp
             NavigateBackCommand = new AppCommand(NavigateBack);
         }
 
-        public void NavigateTo(string viewModelName)
+        public void NavigateTo(string viewModelName, object model = null)
         {
-            var viewModel = ViewModelFactory.CreateViewModel(viewModelName);
+            var viewModel = ViewModelFactory.CreateViewModel(viewModelName, model);
             previousView = CurrentView;
             CurrentView = viewModel;
         }
