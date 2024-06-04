@@ -1,4 +1,6 @@
-﻿using RVAProject.Common;
+﻿
+using RVAProject.AppServices.Helpers;
+using RVAProject.Common;
 using RVAProject.Common.DTOs.BookDTO;
 using RVAProject.Common.Entities;
 using RVAProject.Common.Repositories;
@@ -23,6 +25,7 @@ namespace RVAProject.AppServices
         {
             if (createBookRequest == null)
             {
+                Logger.Error(" Book creation failed. Invalid data.");
                 throw new CustomAppException("Book creation failed. Invalid data.");
             }
             try
@@ -35,6 +38,7 @@ namespace RVAProject.AppServices
                     Description = createBookRequest.Description
                 };
                 await _bookRepository.AddBook(newBook);
+                Logger.Info($" Book added: Title:{newBook.Title}, Description: {newBook.Description}");
             }
             catch (Exception ex)
             {
@@ -48,6 +52,7 @@ namespace RVAProject.AppServices
             var existingBook = await _bookRepository.GetBookById(id);
             if (existingBook == default(Book))
             {
+                Logger.Error($" Book with id: {id} does not exist");
                 throw new CustomAppException("Book not found");
             }
             await _bookRepository.DeleteBook(existingBook);
@@ -56,6 +61,7 @@ namespace RVAProject.AppServices
         public async Task<IEnumerable<BookInfo>> GetAllAsync()
         {
             var books = await _bookRepository.GetAllBooks();
+            Logger.Info("Books get method are successfully executed");
             return books.AsBookInfoList();
         }
 
@@ -64,8 +70,10 @@ namespace RVAProject.AppServices
             var existingBook = await _bookRepository.GetBookById(id);
             if (existingBook == default(Book))
             {
+                Logger.Error($" Book with id: {id} does not exist");
                 throw new CustomAppException("Book not found");
             }
+            Logger.Info($" Book get method by id with id: {id} are successfully executed");
             return existingBook.AsBookInfo();
         }
 
@@ -74,8 +82,10 @@ namespace RVAProject.AppServices
             var existingBook = await _bookRepository.GetBook(b => b.Title.Contains(partialName));
             if (existingBook == default(Book))
             {
+                Logger.Error($" Book with partialName: {partialName} does not exist");
                 throw new CustomAppException("Book not found");
             }
+            Logger.Info($" Book get method by partial name with partial name: {partialName} are successfully executed");
             return existingBook.AsBookInfo();
         }
 
@@ -84,12 +94,14 @@ namespace RVAProject.AppServices
             var existingBook = await _bookRepository.GetBookById(updateBookRequest.Id);
             if (existingBook == default(Book))
             {
+                Logger.Error("Book does not exist");
                 throw new CustomAppException("Book not found");
             }
             existingBook.Title = updateBookRequest.Title;
             existingBook.Description = updateBookRequest.Description;
             // TODO update Publisher and artists
             await _bookRepository.SaveChangesBook();
+            Logger.Info($" Book updated: Title:{existingBook.Title}, Description: {existingBook.Description}");
         }
     }
 }

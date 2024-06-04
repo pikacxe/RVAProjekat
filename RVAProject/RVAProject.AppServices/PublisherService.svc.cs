@@ -1,11 +1,15 @@
-﻿using RVAProject.Common;
+﻿using RVAProject.AppServices.Helpers;
+using RVAProject.Common;
 using RVAProject.Common.DTOs.PublisherDTO;
 using RVAProject.Common.Entities;
 using RVAProject.Common.Repositories;
 using RVAProject.Common.Repositories.Impl;
 using System;
 using System.Collections.Generic;
+using System.Security.Policy;
 using System.Threading.Tasks;
+
+using Publisher = RVAProject.Common.Entities.Publisher;
 
 namespace RVAProject.AppServices
 {
@@ -29,11 +33,13 @@ namespace RVAProject.AppServices
                 Books = new List<Book>()
             };
             await _publisherRepository.AddPublisher(publisher);
+            Logger.Info($" Publisher added: Email: {publisher.Email}, Name: {publisher.Name}, Addres : {publisher.Address}");
         }
 
         public async Task<IEnumerable<PublisherInfo>> GetAllPublishers()
         {
             var publishers = await _publisherRepository.GetAllPublishers();
+            Logger.Info("Publishers get method are successfully executed");
             return publishers.AsPublisherInfoList();
         }
 
@@ -43,9 +49,11 @@ namespace RVAProject.AppServices
 
             if (existingPublisher == null)
             {
+                Logger.Error($" Publisher with id: {id} does not exist");
                 throw new CustomAppException("Publisher does not exist");
             }
 
+            Logger.Info($" Publisher with id: {id} is deleted");
             return existingPublisher.AsPublisherInfo();
         }
 
@@ -55,6 +63,7 @@ namespace RVAProject.AppServices
 
             if (existingPublisher == null)
             {
+                Logger.Error("Publisher does not exist");
                 throw new CustomAppException("Publisher does not exist");
             }
 
@@ -63,18 +72,20 @@ namespace RVAProject.AppServices
             existingPublisher.Address = updatePublisherRequest.Address;
 
             await _publisherRepository.SaveChangesPublisher();
+            Logger.Info($" Publisher updated: Email: {existingPublisher.Email}, Name: {existingPublisher.Name}, Addres : {existingPublisher.Address}");
         }
-
         public async Task DeletePublisher(Guid id)
         {
             var existingPublisher = await _publisherRepository.GetPublisherById(id);
 
             if (existingPublisher == null)
             {
+                Logger.Error($" Publisher with id: {id} does not exist");
                 throw new CustomAppException("Publisher does not exist");
             }
 
             await _publisherRepository.DeletePublisher(existingPublisher);
+            Logger.Info($" Publisher with id: {id} is deleted");
         }
     }
 }
