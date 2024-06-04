@@ -6,11 +6,75 @@
              xmlns:local="clr-namespace:RVAProject.ClientApp.Views"
              xmlns:viewModel="clr-namespace:RVAProject.ClientApp.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800">
     <UserControl.DataContext>
         <viewModel:RegisterViewModel/>
     </UserControl.DataContext>
-    <Grid>
-        <TextBlock Text="Hello from register view"/>
+    <Grid HorizontalAlignment="Center"
+          VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            FontSize="45"
+            TextAlignment="Center"
+            VerticalAlignment="Bottom"
+            Text="Add User"/>
+        <Label
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            Margin="5"
+            Content="First name"/>
+        <TextBox
+            Margin="5"
+            Grid.Row="2"
+            Text=""/>
+        <Label 
+            Grid.Row="3"
+            VerticalAlignment="Center"
+            Margin="5"
+            Content="Last Name" />
+        <TextBox 
+            Margin="5"
+            Grid.Row="4"
+            Text="{}"/>
+        <Label
+            Grid.Row="5"
+            VerticalAlignment="Bottom"
+            Margin="5"
+            Content="Username" />
+        <TextBox
+            Margin="5"
+            Grid.Row="6"
+            Text=""/>
+        <Label
+            Grid.Row="7"
+            VerticalAlignment="Bottom"
+            Margin="5"
+            Content="Password" />
+        <TextBox
+            Margin="5"
+            Grid.Row="8"
+            Text=""/>
+        <StackPanel Orientation="Horizontal" Grid.Row="9">
+            <Label
+            Grid.Row="7"
+            VerticalAlignment="Bottom"
+            Margin="5"
+            Content="Is admin" />
+            <CheckBox IsChecked="False" Margin="5, 10"/>
+            <Button Content="Add" Width="90" Margin="5"/>
+        </StackPanel>
     </Grid>
 </UserControl>

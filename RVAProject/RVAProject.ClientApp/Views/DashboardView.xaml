@@ -11,6 +11,54 @@
         <viewModel:DashboardViewModel/>
     </UserControl.DataContext>
     <Grid>
-        <TextBlock Text="Hello from dashboard"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <StackPanel Grid.Row="2">
+                <DataGrid x:Name="dataGridDashboard">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Width="*">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Name" Width="*">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Email" Width="*">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Address" Width="*">
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="1" Content="Add User" FontSize="20"/>
+            <Button Grid.Row="2" Content="Update Profile" FontSize="20"/>
+            <Button Grid.Row="3" Content="Add Instance" FontSize="20"/>
+            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True"/>
+            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True"/>
+            <Button Grid.Row="6" Content="Duplicate" FontSize="20"/>
+            
+        </Grid>
     </Grid>
 </UserControl>
