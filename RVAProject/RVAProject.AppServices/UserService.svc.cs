@@ -1,4 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+
+using RVAProject.AppServices.Helpers;
 using RVAProject.Common;
 using RVAProject.Common.DTOs.UserDTO;
 using RVAProject.Common.Entities;
@@ -29,6 +31,7 @@ namespace RVAProject.AppServices
 
             if (existingUser != null)
             {
+                Logger.Error($" User with user name {userRequest.Username} already exists");
                 throw new CustomAppException("User already exists");
             }
 
@@ -43,6 +46,7 @@ namespace RVAProject.AppServices
             };
 
             await _userRepository.AddUser(user);
+            Logger.Info($" User added: Username: {user.Username}, Firstname: {user.FirstName}, Lastname: {user.LastName}");
         }
         public async Task<UserInfo> GetUserById(Guid id)
         {
@@ -50,9 +54,10 @@ namespace RVAProject.AppServices
 
             if (existingUser == null)
             {
+                Logger.Error($" User with id {id} does not exists");
                 throw new CustomAppException("User does not exist");
             }
-
+            Logger.Info($" User get by id mehod with id: {id} are successfully executed");
             return existingUser.AsUserInfo();
         }
 
@@ -62,6 +67,7 @@ namespace RVAProject.AppServices
 
             if (existingUser == null)
             {
+                Logger.Error($" User does not exist");
                 throw new CustomAppException("User does not exist");
             }
 
@@ -69,6 +75,7 @@ namespace RVAProject.AppServices
             existingUser.LastName = updateUserRequest.LastName;
 
             await _userRepository.SaveChangesUser();
+            Logger.Info($" User updated: Username: {existingUser.Username}, Firstname: {existingUser.FirstName}, Lastname: {existingUser.LastName}");
         }
 
         public async Task<string> LogIn(LogInRequest logInRequest)
@@ -77,12 +84,14 @@ namespace RVAProject.AppServices
 
             if (existingUser == null)
             {
+                Logger.Error("Invalid login credentials");
                 throw new CustomAppException("Invalid credentials");
             }
             else
             {
                 if (existingUser.Password == logInRequest.Password)
                 {
+                    Logger.Info("Successfully login");
                     return GenerateToken(existingUser);
                 }
             }

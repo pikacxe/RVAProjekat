@@ -52,6 +52,8 @@ Zadate podatke ne menjati:
   - [ ] Odbaci svoje izmene (Reload)
   - [ ] Odbaci tudje izmene (Overwrite)
 - [ ] Tabela obavestenja, svako obavestenje novi red
+- [] Metoda za vracanje svih autora po book id-u (authorinfo) 
+- [] Metoda za vracanje publishera za book id (publisherinfo)
 
 
 ## Serverska aplikacija (WCF)

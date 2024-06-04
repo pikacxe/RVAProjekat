@@ -14,6 +14,7 @@ using System.Data.Entity.Core.Metadata.Edm;
 using RVAProject.Common.Repositories.Impl;
 using RVAProject.Common.Repositories;
 using System.Threading;
+using RVAProject.AppServices.Helpers;
 
 namespace RVAProject.AppServices
 {
@@ -36,7 +37,8 @@ namespace RVAProject.AppServices
                 HasNobelPrize = authorRequest.HasNobelPrize,
                 Books = new List<Book>()
             };
-           await _authorRepository.AddAuthor(author);
+            await _authorRepository.AddAuthor(author);
+            Logger.Info($" Author added: Fullname:{author.FullName}, Penname: {author.PenName}, Nobel : {author.HasNobelPrize}");
         }
 
         public async Task DeleteAuthor(Guid id)
@@ -44,14 +46,17 @@ namespace RVAProject.AppServices
             var author = await _authorRepository.GetAuthorById(id);
             if (author == null)
             {
+                Logger.Error($" Author with id: {id} does not exist");
                 throw new CustomAppException("Author does not exist");
             }
             await _authorRepository.DeleteAuthor(author);
+            Logger.Info($" Author with id: {id} is deleted");
         }
 
         public async Task<IEnumerable<AuthorInfo>> GetAllAuthors()
         {
             var authors = await _authorRepository.GetAllAuthors();
+            Logger.Info("Authors get method are successfully executed");
             return authors.AsAuthorInfoList();
         }
 
@@ -60,8 +65,10 @@ namespace RVAProject.AppServices
             var author = await _authorRepository.GetAuthorById(id);
             if(author == null)
             {
+                Logger.Error($" Author with id: {id} does not exist");
                 throw new CustomAppException("Author does not exist");
             }
+            Logger.Info($" Author get method by id with id: {id} are successfully executed");
             return author.AsAuthorInfo();
         }
 
@@ -70,12 +77,14 @@ namespace RVAProject.AppServices
             var author = await _authorRepository.GetAuthorById(updateAuthorRequest.Id);
             if (author == null)
             {
+                Logger.Error("Author does not exist");
                 throw new CustomAppException("Author does not exits");
             }
             author.FullName = updateAuthorRequest.FullName;
             author.PenName= updateAuthorRequest.PenName;
             author.HasNobelPrize=updateAuthorRequest.HasNobelPrize;
-            await _authorRepository.SaveChangesAuthor(); 
+            await _authorRepository.SaveChangesAuthor();
+            Logger.Info($" Author updated: Fullname:{author.FullName}, Penname: {author.PenName}, Nobel : {author.HasNobelPrize}");
         }
     }
 }
