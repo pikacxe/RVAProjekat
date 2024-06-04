@@ -122,15 +122,20 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AuthorService.svc" />
     <Content Include="BookService.svc" />
     <Content Include="PublisherService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorService.svc.cs">
+      <DependentUpon>AuthorService.svc</DependentUpon>
+    </Compile>
     <Compile Include="BookService.svc.cs">
       <DependentUpon>BookService.svc</DependentUpon>
     </Compile>
+    <Compile Include="IAuthorService.cs" />
     <Compile Include="IBookService.cs" />
     <Compile Include="IPublisherService.cs" />
     <Compile Include="IUserService.cs" />

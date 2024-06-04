@@ -5,12 +5,15 @@ using RVAProject.Common.DTOs.AuthorDTO;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RVAProject.ClientApp.ViewModels
 {
     public class AuthorDashboardViewModel : BindableBase
     {
         public readonly IClientAuthorService _service;
+        private List<AuthorInfo> authorsCache = new List<AuthorInfo>();
         public ObservableCollection<AuthorInfo> authors;
         public ObservableCollection<AuthorInfo> Authors
         {
@@ -20,8 +23,8 @@ namespace RVAProject.ClientApp.ViewModels
 
         public AppAsyncCommand LoadAuthors { get; private set; }
         public AppAsyncCommand AddAuthor { get; private set; }
-        public AppAsyncCommand UpdateAuthor { get; private set; }
-        public AppAsyncCommand DeleteAuthor { get; private set; }
+        public AppAsyncCommand<AuthorInfo> UpdateAuthor { get; private set; }
+        public AppAsyncCommand<Guid> DeleteAuthor { get; private set; }
 
         public AuthorDashboardViewModel()
         {
@@ -29,18 +32,25 @@ namespace RVAProject.ClientApp.ViewModels
             authors = new ObservableCollection<AuthorInfo>();
             LoadAuthors = new AppAsyncCommand(HandleLoadAuthors);
             AddAuthor = new AppAsyncCommand(HandleAddAuthor);
-            UpdateAuthor = new AppAsyncCommand(HandleUpdateAuthor);
-            DeleteAuthor = new AppAsyncCommand(HandleDeleteAuthor);
+            UpdateAuthor = new AppAsyncCommand<AuthorInfo>(HandleUpdateAuthor);
+            DeleteAuthor = new AppAsyncCommand<Guid>(HandleDeleteAuthor);
         }
 
-        private async Task HandleDeleteAuthor()
+        private async Task HandleDeleteAuthor(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _service.DeleteAuthorAsync(id);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
-        private async Task HandleUpdateAuthor()
+        private async Task HandleUpdateAuthor(AuthorInfo authorInfo)
         {
-            throw new NotImplementedException();
+            NavigationService.Instance.NavigateTo("updateAuthor", authorInfo);
         }
 
         private async Task HandleAddAuthor()
@@ -50,7 +60,13 @@ namespace RVAProject.ClientApp.ViewModels
 
         private async Task HandleLoadAuthors()
         {
-            throw new NotImplementedException();
+            var authors = await _service.GetAllAuthorsAsync();
+            authorsCache = authors.ToList();
+            Authors.Clear();
+            foreach (var author in authors)
+            {
+                Authors.Add(author);
+            }
         }
     }
 }
