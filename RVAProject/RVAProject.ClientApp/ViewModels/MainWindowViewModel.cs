@@ -1,12 +1,4 @@
-﻿using RVAProject.ClientApp.Modules;
-using System;
-using System.Collections.Generic;
-using System.ServiceModel;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
-using System.Windows;
-
-namespace RVAProject.ClientApp.ViewModels
+﻿namespace RVAProject.ClientApp.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {

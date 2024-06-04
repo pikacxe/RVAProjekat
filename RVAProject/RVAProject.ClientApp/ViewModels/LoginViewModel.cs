@@ -1,52 +1,46 @@
 ﻿using RVAProject.ClientApp.Modules;
+using RVAProject.ClientApp.Services;
 using RVAProject.Common.DTOs.UserDTO;
-using RVAProject.Common.Helpers;
-using System.Security.Claims;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows;
+using RVAProject.ClientApp.Services.Impl;
+using System;
+using RVAProject.Common;
+using RVAProject.Common.Entities;
 
 namespace RVAProject.ClientApp.ViewModels
 {
     internal class LoginViewModel : BindableBase
     {
+        private readonly IClientUserService _service;
         public LoginViewModel()
         {
             Title = "Login";
+            _service = new ClientUserService();
             LoginCommand = new AppAsyncCommand(HandleLogin);
-            ToRegisterView = new AppCommand(HandleRedirect);
         }
 
         private async Task HandleLogin()
         {
-            UserService.UserServiceClient userClient = new UserService.UserServiceClient();
-
             var token = "";
             try
             {
-                token = await userClient.LogInAsync(new LogInRequest { Username = Username, Password = Password });
+                token = await _service.LoginAsync(new LogInRequest { Username = Username, Password = Password });
+                NavigationService.Instance.NavigateTo("dashboard");
             }
-            catch (FaultException ex)
+            catch (FaultException fe)
             {
-                MessageBox.Show($"{ex.Message}");
+                MessageBox.Show($"{fe.Message}");
             }
-
-            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
+            catch (CustomAppException cae)
             {
-                var userId = principal.FindFirst("user_id").Value;
-                var userRole = principal.FindFirst("user_role").Value;
-
-                MessageBox.Show($"Token is valid. User ID: {userId}, User Role: {userRole}");
-                NavigationService.Instance.NavigateTo(ViewModelFactory.CreateViewModel("dashboard"));
+                MessageBox.Show($"{cae.Message}");
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid token.");
+                MessageBox.Show($"{ex.Message}");   
             }
-        }
-        private void HandleRedirect()
-        {
-            NavigationService.Instance.NavigateTo(ViewModelFactory.CreateViewModel("register"));
         }
 
         private string username;

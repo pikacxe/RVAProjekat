@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
     <UserControl.DataContext>
-        <viewModel:RegisterViewModel/>
+        <viewModel:AddUserViewModel/>
     </UserControl.DataContext>
     <Grid HorizontalAlignment="Center"
           VerticalAlignment="Center">
