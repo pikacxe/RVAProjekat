@@ -1,4 +1,5 @@
-﻿using RVAProject.Common.DTOs.AuthorDTO;
+﻿using RVAProject.ClientApp.AuthorService;
+using RVAProject.Common.DTOs.AuthorDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,26 +10,36 @@ namespace RVAProject.ClientApp.Services.Impl
 {
     public class ClientAuthorService : IClientAuthorService
     {
-        //private readonly AuthorServiceClient _client;
+        private readonly AuthorServiceClient _client;
 
-        public Task DeleteAuthorAsync(Guid id)
+        public ClientAuthorService()
         {
-            throw new NotImplementedException();
+            _client = new AuthorServiceClient();
         }
 
-        public Task<IEnumerable<AuthorInfo>> GetAllAuthorsAsync()
+        public async Task CreateAuthorAsync(AuthorRequest request)
         {
-            throw new NotImplementedException();
+            await _client.AddAuthorAsync(request);
         }
 
-        public Task<AuthorInfo> GetAuthorAsync(Guid id)
+        public async Task DeleteAuthorAsync(Guid id)
         {
-            throw new NotImplementedException();
+            await _client.DeleteAuthorAsync(id);
         }
 
-        public Task<IEnumerable<AuthorInfo>> GetAuthorForPublisherAsync(Guid publisherId)
+        public async Task<IEnumerable<AuthorInfo>> GetAllAuthorsAsync()
         {
-            throw new NotImplementedException();
+           return await _client.GetAllAuthorsAsync();
+        }
+
+        public async Task<AuthorInfo> GetAuthorAsync(Guid id)
+        {
+            return await _client.GetAuthorByIdAsync(id);
+        }
+
+        public async Task UpdateAuthorAsync(UpdateAuthorRequest request)
+        {
+            await _client.UpdateAuthorAsync(request);
         }
     }
 }

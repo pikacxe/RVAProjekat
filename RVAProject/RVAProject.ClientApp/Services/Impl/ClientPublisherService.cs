@@ -39,7 +39,7 @@ namespace RVAProject.ClientApp.Services.Impl
 
         public async Task UpdatePublisherAsync(UpdatePublisherRequest request)
         {
-            return await _client.UpdatePublisherAsync(request);
+           await _client.UpdatePublisherAsync(request);
         }
     }
 }

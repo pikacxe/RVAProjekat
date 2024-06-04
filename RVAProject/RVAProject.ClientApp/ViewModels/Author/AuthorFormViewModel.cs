@@ -1,9 +1,7 @@
-﻿using RVAProject.ClientApp.Modules;
+﻿using RVAProject.ClientApp.AuthorService;
+using RVAProject.ClientApp.Modules;
 using RVAProject.Common.DTOs.AuthorDTO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RVAProject.ClientApp.ViewModels.Author
@@ -38,27 +36,25 @@ namespace RVAProject.ClientApp.ViewModels.Author
         {
             try
             {
-                //if(isUpdate)
-                //{
-                //    await _client.UpdateAuthorAsync(new UpdateAuthorRequest()
-                //    {
-                //        Id = CurrentAuthor.Id,
-                //        FirstName = CurrentAuthor.FirstName,
-                //        LastName = CurrentAuthor.LastName,
-                //        DateOfBirth = CurrentAuthor.DateOfBirth,
-                //        DateOfDeath = CurrentAuthor.DateOfDeath
-                //    });
-                //}
-                //else
-                //{
-                //    await _client.AddAuthorAsync(new AuthorRequest()
-                //    {
-                //        FirstName = CurrentAuthor.FirstName,
-                //        LastName = CurrentAuthor.LastName,
-                //        DateOfBirth = CurrentAuthor.DateOfBirth,
-                //        DateOfDeath = CurrentAuthor.DateOfDeath
-                //    });
-                //}
+                if (isUpdate)
+                {
+                    await _client.UpdateAuthorAsync(new UpdateAuthorRequest()
+                    {
+                        Id = CurrentAuthor.Id,
+                        FullName = CurrentAuthor.FullName,
+                        PenName = CurrentAuthor.PenName,
+                        HasNobelPrize = CurrentAuthor.HasNobelPrize
+                    });
+                }
+                else
+                {
+                    await _client.AddAuthorAsync(new AuthorRequest()
+                    {
+                        FullName = CurrentAuthor.FullName,
+                        PenName = CurrentAuthor.PenName,
+                        HasNobelPrize = CurrentAuthor.HasNobelPrize
+                    });
+                }
             }
             catch (Exception ex)
             {

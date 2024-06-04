@@ -121,6 +121,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\AuthorService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\BookService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -149,7 +154,6 @@
     <Compile Include="Services\IClientUserService.cs" />
     <Compile Include="ViewModels\Author\AuthorDashboardViewModel.cs" />
     <Compile Include="ViewModels\Author\AuthorFormViewModel.cs" />
-    <Compile Include="ViewModels\Author\AuthorServiceClient.cs" />
     <Compile Include="ViewModels\BindableBase.cs" />
     <Compile Include="ViewModels\Book\BookDashboardViewModel.cs" />
     <Compile Include="ViewModels\Book\BookFormViewModel.cs" />
@@ -269,6 +273,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\AuthorService\AuthorService.wsdl" />
+    <None Include="Connected Services\AuthorService\AuthorService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthorService\AuthorService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthorService\AuthorService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthorService\AuthorService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthorService\AuthorService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\BookService\BookService.wsdl" />
     <None Include="Connected Services\BookService\BookService.xsd">
       <SubType>Designer</SubType>
@@ -324,6 +344,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\RVAProject.Common.DTOs.AuthorDTO.AuthorInfo.datasource" />
     <None Include="Properties\DataSources\RVAProject.Common.DTOs.BookDTO.BookInfo.datasource" />
     <None Include="Properties\DataSources\RVAProject.Common.DTOs.PublisherDTO.PublisherInfo.datasource" />
     <None Include="Properties\DataSources\RVAProject.Common.DTOs.UserDTO.UserInfo.datasource" />
@@ -335,13 +356,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AuthorService\" />
     <WCFMetadataStorage Include="Connected Services\BookService\" />
     <WCFMetadataStorage Include="Connected Services\PublisherService\" />
     <WCFMetadataStorage Include="Connected Services\UserService\" />
@@ -396,6 +416,21 @@
       <Project>{65aa98b6-a2b8-4776-b926-437e6312958e}</Project>
       <Name>RVAProject.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\AuthorService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
