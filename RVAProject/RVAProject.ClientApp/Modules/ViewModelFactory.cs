@@ -13,19 +13,15 @@ namespace RVAProject.ClientApp.Modules
             switch (viewModelName.Trim().ToLower())
             {
                 case "login": return new LoginViewModel();
-                case "register": return new AddUserViewModel();
                 case "dashboard": return new DashboardViewModel();
-                case "adduser": return new AddUserViewModel();
-                case "edituser": return new AddUserViewModel(model as UserInfo);
-                    /*
-                case "addpublisher": return new AddPublisherViewModel();
-                case "editpublisher": return new AddPublisherViewModel(model as PublisherInfo);
-                case "addbook": return new AddBookViewModel();
-                case "editbook": return new AddBookViewModel(model as BookInfo);
-                case "addauthor": return new AddAuthorViewModel();
-                case "editauthor": return new AddAuthorViewModel(model as AuthorInfo);
-
-                    */
+                case "adduser": return new UserFormViewModel();
+                case "edituser": return new UserFormViewModel(model as UserInfo);
+                case "addpublisher": return new PublisherFormViewModel();
+                case "editpublisher": return new PublisherFormViewModel(model as PublisherInfo);
+                case "addbook": return new BookFormViewModel();
+                case "editbook": return new BookFormViewModel(model as BookInfo);
+                case "addauthor": return new AuthorFormViewModel();
+                case "editauthor": return new AuthorFormViewModel(model as AuthorInfo);
                 default: return new LoginViewModel();
             }
         }

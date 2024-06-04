@@ -11,6 +11,8 @@ namespace RVAProject.Common.DTOs.UserDTO
                 Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                isAdmin = user.isAdmin,
+                Username = user.Username,
             };
             return userInfo;
         }

@@ -7,7 +7,7 @@
         xmlns:viewModel="clr-namespace:RVAProject.ClientApp.ViewModels"
         xmlns:view ="clr-namespace:RVAProject.ClientApp.Views"
         mc:Ignorable="d"
-        Title="{Binding CurrentView.Title}" Height="450" Width="800">
+        Title="{Binding CurrentView.Title, Source={x:Static local:NavigationService.Instance}}" Height="450" Width="800">
     <Window.DataContext>
         <viewModel:MainWindowViewModel/>
     </Window.DataContext>
@@ -43,19 +43,5 @@
                         Grid.ColumnSpan="2"
                         Padding="10"
                         Content="{Binding CurrentView, Source={x:Static local:NavigationService.Instance}}"/>
-        <Border Grid.Column="0"
-				Grid.ColumnSpan="2"
-                Grid.Row="2"
-                BorderBrush="Red"
-                BorderThickness="2"
-                >
-            <DockPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <TextBlock Text="🔴" Foreground="Red"/>
-                    <TextBlock Text="{Binding ConnectionMessage}" DockPanel.Dock="Left"/>
-                </StackPanel>
-            </DockPanel>
-        </Border>
-
     </Grid>
 </Window>

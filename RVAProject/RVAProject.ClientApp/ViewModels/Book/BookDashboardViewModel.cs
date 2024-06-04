@@ -20,9 +20,16 @@ namespace RVAProject.ClientApp.ViewModels
             set => SetProperty(ref books, value);
         }
 
+        private BookInfo selectedBook = default;
+        public BookInfo SelectedBook
+        {
+            get => selectedBook;
+            set => SetProperty(ref selectedBook, value);
+        }
+
         public AppAsyncCommand<IEnumerable<BookInfo>> LoadBooks { get; private set; }
-        public AppAsyncCommand AddBook { get; private set; }
-        public AppAsyncCommand UpdateBook { get; private set; }
+        public AppCommand AddBook { get; private set; }
+        public AppCommand UpdateBook { get; private set; }
         public AppAsyncCommand DeleteBook { get; private set; }
 
         public BookDashboardViewModel()
@@ -31,24 +38,33 @@ namespace RVAProject.ClientApp.ViewModels
             books = new ObservableCollection<BookInfo>();
             _service = new ClientBookService();
             LoadBooks = new AppAsyncCommand<IEnumerable<BookInfo>>(HandleLoadBooks);
-            AddBook = new AppAsyncCommand(HandleAddBook);
-            UpdateBook = new AppAsyncCommand(HandleUpdateBook);
+            AddBook = new AppCommand(HandleAddBook);
+            UpdateBook = new AppCommand(HandleUpdateBook);
             DeleteBook = new AppAsyncCommand(HandleDeleteBook);
         }
 
         private async Task HandleDeleteBook()
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _service.DeleteBookAsync(selectedBook.Id);
+                Books.Remove(selectedBook);
+                selectedBook = default;
+            }
+            catch (Exception e)
+            {
+                //TODO log error
+            }
         }
 
-        private async Task HandleUpdateBook()
+        private void HandleUpdateBook()
         {
-            throw new NotImplementedException();
+            NavigationService.Instance.NavigateTo("updateBook", selectedBook);
         }
 
-        private async Task HandleAddBook()
+        private void HandleAddBook()
         {
-            throw new NotImplementedException();
+            NavigationService.Instance.NavigateTo("addBook");
         }
 
         private async Task HandleLoadBooks(IEnumerable<BookInfo> enumerable)

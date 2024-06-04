@@ -14,5 +14,7 @@ namespace RVAProject.Common.DTOs.UserDTO
         public string FirstName { get; set; }
         [DataMember]
         public string LastName { get; set; }
+        [DataMember]
+        public bool isAdmin { get; set; }
     }
 }

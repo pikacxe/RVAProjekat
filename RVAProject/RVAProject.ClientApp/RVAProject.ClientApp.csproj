@@ -162,7 +162,6 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Publisher\PublisherDashboardViewModel.cs" />
     <Compile Include="ViewModels\Publisher\PublisherFormViewModel.cs" />
-    <Compile Include="ViewModels\User\AddUserViewModel.cs" />
     <Compile Include="ViewModels\User\UserFormViewModel.cs" />
     <Compile Include="Views\AddAuthorView.xaml.cs">
       <DependentUpon>AddAuthorView.xaml</DependentUpon>
