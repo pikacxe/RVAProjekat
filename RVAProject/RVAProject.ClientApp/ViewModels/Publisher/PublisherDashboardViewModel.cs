@@ -17,10 +17,15 @@ namespace RVAProject.ClientApp.ViewModels
             get => publishers;
             set => SetProperty(ref publishers, value);
         }
-
+        private PublisherInfo selectedPublisher = default;
+        public PublisherInfo SelectedPublisher
+        {
+            get => selectedPublisher;
+            set => SetProperty(ref selectedPublisher, value);
+        }
         public AppAsyncCommand LoadPublishers { get; private set; }
-        public AppAsyncCommand AddPublisher { get; private set; }
-        public AppAsyncCommand UpdatePublisher { get; private set; }
+        public AppCommand AddPublisher { get; private set; }
+        public AppCommand UpdatePublisher { get; private set; }
         public AppAsyncCommand DeletePublisher { get; private set; }
 
         public PublisherDashboardViewModel()
@@ -28,28 +33,49 @@ namespace RVAProject.ClientApp.ViewModels
             publishers = new ObservableCollection<PublisherInfo>();
             _service = new ClientPublisherService();
             LoadPublishers = new AppAsyncCommand(HandleLoadPublishers);
-            AddPublisher = new AppAsyncCommand(HandleAddPublisher);
-            UpdatePublisher = new AppAsyncCommand(HandleUpdatePublisher);
+            AddPublisher = new AppCommand(HandleAddPublisher);
+            UpdatePublisher = new AppCommand(HandleUpdatePublisher);
             DeletePublisher = new AppAsyncCommand(HandleDeletePublisher);
         }
 
         private async Task HandleDeletePublisher()
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _service.DeletePublisherAsync(selectedPublisher.Id);
+                Publishers.Remove(selectedPublisher);
+                selectedPublisher = default;
+            }
+            catch (Exception e)
+            {
+                //TODO log error
+            }
         }
 
-        private async Task HandleUpdatePublisher()
+        private void HandleUpdatePublisher()
         {
-            throw new NotImplementedException();
+           NavigationService.Instance.NavigateTo("updatePublisher", selectedPublisher);
         }
 
-        private async Task HandleAddPublisher()
+        private void HandleAddPublisher()
         {
-            throw new NotImplementedException();
+           NavigationService.Instance.NavigateTo("addPublisher");
         }
         private async Task HandleLoadPublishers()
-        {
-            throw new NotImplementedException();
+        {          
+            try
+            {
+                var publishers = await _service.GetAllPublishersAsync();
+                Publishers.Clear();
+                foreach (var publisher in publishers)
+                {
+                    Publishers.Add(publisher);
+                }
+            }
+            catch (Exception e)
+            {
+                //TODO log error
+            }
         }
 
     }

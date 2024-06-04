@@ -4,12 +4,12 @@ using RVAProject.Common.DTOs.AuthorDTO;
 using System;
 using System.Threading.Tasks;
 
-namespace RVAProject.ClientApp.ViewModels.Author
+namespace RVAProject.ClientApp.ViewModels
 {
     internal class AuthorFormViewModel : BindableBase
     {
         private AuthorServiceClient _client = new AuthorServiceClient();
-        private bool isUpdate;
+        public bool isUpdate;
         private AuthorInfo currentAuthor;
         public AuthorInfo CurrentAuthor
         {

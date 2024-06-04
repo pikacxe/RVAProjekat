@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RVAProject.ClientApp.ViewModels.Book
+namespace RVAProject.ClientApp.ViewModels
 {
     internal class BookFormViewModel : BindableBase
     {
         private readonly BookServiceClient _client = new BookServiceClient();
-        private bool isUpdate;
+        public bool isUpdate;
         private BookInfo currentBook;
         public BookInfo CurrentBook
         {
@@ -58,7 +58,8 @@ namespace RVAProject.ClientApp.ViewModels.Book
                         Title = CurrentBook.Title,
                         AuthorIds = AuthorIds,
                         Description = CurrentBook.Description,
-                        PublisherId = PublisherId
+                        PublisherId = CurrentBook.Publisher.Id,
+                        
                     });
                 }
                 else

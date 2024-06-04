@@ -12,7 +12,7 @@ namespace RVAProject.ClientApp.ViewModels
     internal class PublisherFormViewModel : BindableBase
     {
         private PublisherServiceClient _client = new PublisherServiceClient();
-        private bool isUpdate;
+        public bool isUpdate;
         private PublisherInfo currentPublisher;
         public PublisherInfo CurrentPublisher
         {

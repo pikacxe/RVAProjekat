@@ -21,26 +21,34 @@ namespace RVAProject.ClientApp.ViewModels
             set => SetProperty(ref authors, value);
         }
 
+        public AuthorInfo selectedAuthor = default;
+        public AuthorInfo SelectedAuthor
+        {
+            get => selectedAuthor;
+            set => SetProperty(ref selectedAuthor, value);
+        }
         public AppAsyncCommand LoadAuthors { get; private set; }
-        public AppAsyncCommand AddAuthor { get; private set; }
-        public AppAsyncCommand<AuthorInfo> UpdateAuthor { get; private set; }
-        public AppAsyncCommand<Guid> DeleteAuthor { get; private set; }
+        public AppCommand AddAuthor { get; private set; }
+        public AppCommand UpdateAuthor { get; private set; }
+        public AppAsyncCommand DeleteAuthor { get; private set; }
 
         public AuthorDashboardViewModel()
         {
             _service = new ClientAuthorService();
             authors = new ObservableCollection<AuthorInfo>();
             LoadAuthors = new AppAsyncCommand(HandleLoadAuthors);
-            AddAuthor = new AppAsyncCommand(HandleAddAuthor);
-            UpdateAuthor = new AppAsyncCommand<AuthorInfo>(HandleUpdateAuthor);
-            DeleteAuthor = new AppAsyncCommand<Guid>(HandleDeleteAuthor);
+            AddAuthor = new AppCommand(HandleAddAuthor);
+            UpdateAuthor = new AppCommand(HandleUpdateAuthor);
+            DeleteAuthor = new AppAsyncCommand(HandleDeleteAuthor);
         }
 
-        private async Task HandleDeleteAuthor(Guid id)
+        private async Task HandleDeleteAuthor()
         {
             try
             {
-                await _service.DeleteAuthorAsync(id);
+                await _service.DeleteAuthorAsync(selectedAuthor.Id);
+                Authors.Remove(selectedAuthor);
+                selectedAuthor = default;
             }
             catch(Exception e)
             {
@@ -48,14 +56,14 @@ namespace RVAProject.ClientApp.ViewModels
             }
         }
 
-        private async Task HandleUpdateAuthor(AuthorInfo authorInfo)
+        private void HandleUpdateAuthor()
         {
-            NavigationService.Instance.NavigateTo("updateAuthor", authorInfo);
+            NavigationService.Instance.NavigateTo("updateAuthor", selectedAuthor);
         }
 
-        private async Task HandleAddAuthor()
+        private void HandleAddAuthor()
         {
-            throw new NotImplementedException();
+            NavigationService.Instance.NavigateTo("addAuthor");
         }
 
         private async Task HandleLoadAuthors()
