@@ -1,5 +1,6 @@
 ﻿using RVAProject.Common;
 using RVAProject.Common.DTOs.UserDTO;
+using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
@@ -20,5 +21,9 @@ namespace RVAProject.AppServices
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
         Task UpdateUser(UpdateUserRequest updateUserData);
+
+        [OperationContract]
+        [FaultContract(typeof(CustomAppException))]
+        Task<UserInfo> GetUserById(Guid id);
     }
 }

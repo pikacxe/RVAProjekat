@@ -3,30 +3,165 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IBookService_DoWork_InputMessage">
-    <wsdl:part name="parameters" element="tns:DoWork" />
+  <wsdl:message name="IBookService_GetBookById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookById" />
   </wsdl:message>
-  <wsdl:message name="IBookService_DoWork_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  <wsdl:message name="IBookService_GetBookById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_GetBookById_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q1:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_GetBookByPartialName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookByPartialName" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_GetBookByPartialName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookByPartialNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_GetBookByPartialName_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q2:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_CreateBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBook" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_CreateBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_CreateBook_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q3:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_DeleteBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBook" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_DeleteBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_DeleteBook_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q4:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_UpdateBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBook" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_UpdateBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookService_UpdateBook_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q5:CustomAppException" />
   </wsdl:message>
   <wsdl:portType name="IBookService">
-    <wsdl:operation name="DoWork">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBookService/DoWork" message="tns:IBookService_DoWork_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBookService/DoWorkResponse" message="tns:IBookService_DoWork_OutputMessage" />
+    <wsdl:operation name="GetBookById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookService/GetBookById" message="tns:IBookService_GetBookById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookService/GetBookByIdResponse" message="tns:IBookService_GetBookById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBookService/GetBookByIdCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IBookService_GetBookById_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookService/GetAll" message="tns:IBookService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookService/GetAllResponse" message="tns:IBookService_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookByPartialName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookService/GetBookByPartialName" message="tns:IBookService_GetBookByPartialName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookService/GetBookByPartialNameResponse" message="tns:IBookService_GetBookByPartialName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBookService/GetBookByPartialNameCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IBookService_GetBookByPartialName_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookService/CreateBook" message="tns:IBookService_CreateBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookService/CreateBookResponse" message="tns:IBookService_CreateBook_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBookService/CreateBookCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IBookService_CreateBook_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookService/DeleteBook" message="tns:IBookService_DeleteBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookService/DeleteBookResponse" message="tns:IBookService_DeleteBook_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBookService/DeleteBookCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IBookService_DeleteBook_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookService/UpdateBook" message="tns:IBookService_UpdateBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookService/UpdateBookResponse" message="tns:IBookService_UpdateBook_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBookService/UpdateBookCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IBookService_UpdateBook_CustomAppExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IBookService" type="tns:IBookService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="DoWork">
-      <soap:operation soapAction="http://tempuri.org/IBookService/DoWork" style="document" />
+    <wsdl:operation name="GetBookById">
+      <soap:operation soapAction="http://tempuri.org/IBookService/GetBookById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IBookService/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookByPartialName">
+      <soap:operation soapAction="http://tempuri.org/IBookService/GetBookByPartialName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBook">
+      <soap:operation soapAction="http://tempuri.org/IBookService/CreateBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBook">
+      <soap:operation soapAction="http://tempuri.org/IBookService/DeleteBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBook">
+      <soap:operation soapAction="http://tempuri.org/IBookService/UpdateBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="BookService">
