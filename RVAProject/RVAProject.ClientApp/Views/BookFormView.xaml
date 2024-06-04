@@ -16,6 +16,8 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
 
         </Grid.RowDefinitions>
         <TextBlock
@@ -51,6 +53,18 @@
             Margin="5"
             Grid.Row="6"
             Text=""/>
-        <Button Grid.Row="7" Margin="5" Width="100" Content="Add"/>
+        <Label
+            Grid.Row="7"
+            VerticalAlignment="Bottom"
+            Margin="5"
+            Content="Authors" />
+        <ListView Grid.Row="8" Margin="5">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="9" Margin="5" Width="100" Content="Add"/>
     </Grid>
 </UserControl>

@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModel="clr-namespace:RVAProject.ClientApp.ViewModels"
              xmlns:local="clr-namespace:RVAProject.ClientApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewModel:PublisherDashboardViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
@@ -22,7 +26,7 @@
             <TextBlock Text="Publisher Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
             <TextBox Grid.Row="1" Margin="10" Width="150" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="2">
-                <DataGrid x:Name="dataGridDashboard">
+                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Publishers}" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Width="*">
                         </DataGridTextColumn>
