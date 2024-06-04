@@ -44,7 +44,7 @@ namespace RVAProject.AppServices
             var author = await _authorRepository.GetAuthorById(id);
             if (author == null)
             {
-                throw new CustomAppException("User does not exist");
+                throw new CustomAppException("Author does not exist");
             }
             await _authorRepository.DeleteAuthor(author);
         }
