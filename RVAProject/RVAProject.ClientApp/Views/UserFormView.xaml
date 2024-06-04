@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
     <UserControl.DataContext>
-        <viewModel:AddUserViewModel/>
+        <viewModel:UserFormViewModel/>
     </UserControl.DataContext>
     <Grid HorizontalAlignment="Center"
           VerticalAlignment="Center">
@@ -39,7 +39,7 @@
         <TextBox
             Margin="5"
             Grid.Row="2"
-            Text=""/>
+            Text="{Binding CurrentUser.FirstName}"/>
         <Label 
             Grid.Row="3"
             VerticalAlignment="Center"
@@ -48,7 +48,7 @@
         <TextBox 
             Margin="5"
             Grid.Row="4"
-            Text="{}"/>
+            Text="{Binding CurrentUser.LastName}"/>
         <Label
             Grid.Row="5"
             VerticalAlignment="Bottom"
@@ -57,7 +57,7 @@
         <TextBox
             Margin="5"
             Grid.Row="6"
-            Text=""/>
+            Text="{Binding CurrentUser.Username}"/>
         <Label
             Grid.Row="7"
             VerticalAlignment="Bottom"
@@ -66,14 +66,14 @@
         <TextBox
             Margin="5"
             Grid.Row="8"
-            Text=""/>
+            Text="{Binding Password}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="9">
             <Label
             Grid.Row="7"
             VerticalAlignment="Bottom"
             Margin="5"
             Content="Is admin" />
-            <CheckBox IsChecked="False" Margin="5, 10"/>
+            <CheckBox Margin="5, 10" IsChecked="{Binding CurrentUser.isAdmin}"/>
             <Button Content="Add" Width="90" Margin="5"/>
         </StackPanel>
     </Grid>
