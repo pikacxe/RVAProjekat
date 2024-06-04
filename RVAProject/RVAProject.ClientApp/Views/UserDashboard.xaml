@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="RVAProject.ClientApp.Views.AuthorDashboard"
+﻿<UserControl x:Class="RVAProject.ClientApp.Views.UserDashboard"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -19,18 +19,20 @@
                 <RowDefinition Height="7*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Author Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <TextBlock Text="User Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
             <TextBox Grid.Row="1" Margin="10" Width="150" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="2">
                 <DataGrid x:Name="dataGridDashboard">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Width="*">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Full Name" Width="*">
+                        <DataGridTextColumn Header="First Name" Width="*">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Pen Name" Width="*">
+                        <DataGridTextColumn Header="Last Name" Width="*">
                         </DataGridTextColumn>
-                        <DataGridCheckBoxColumn Header="Has Nobel Prize" Width="*">
+                        <DataGridTextColumn Header="Username" Width="*">
+                        </DataGridTextColumn>
+                        <DataGridCheckBoxColumn Header="Is Admin" Width="*">
                         </DataGridCheckBoxColumn>
                     </DataGrid.Columns>
                 </DataGrid>
@@ -51,10 +53,8 @@
 
 
             <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Height="40" Content="R"/>
-            <Button Grid.Row="3" Content="Add Instance" FontSize="20"/>
-            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True"/>
-            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True"/>
-
+            <Button Grid.Row="1" Content="Add User" FontSize="20"/>
+            <Button Grid.Row="2" Content="Update Profile" FontSize="20"/>
         </Grid>
     </Grid>
 </UserControl>

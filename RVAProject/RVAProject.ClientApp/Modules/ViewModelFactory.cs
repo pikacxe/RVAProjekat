@@ -14,7 +14,7 @@ namespace RVAProject.ClientApp.Modules
             switch (viewModelName.Trim().ToLower())
             {
                 case "login": return new LoginViewModel();
-                case "register": return new RegisterViewModel();
+                case "register": return new AddUserViewModel();
                 case "dashboard": return new DashboardViewModel();
                 default: return new LoginViewModel();
             }

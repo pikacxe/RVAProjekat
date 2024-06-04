@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace RVAProject.ClientApp.ViewModels
 {
-    internal class RegisterViewModel : BindableBase
+    internal class AddUserViewModel : BindableBase
     {
 
-        public RegisterViewModel() {
+        public AddUserViewModel() {
             Title = "Register";
         }
     }

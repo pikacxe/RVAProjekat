@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="RVAProject.ClientApp.Views.AuthorDashboard"
+﻿<UserControl x:Class="RVAProject.ClientApp.Views.BookDashboard"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -19,19 +19,19 @@
                 <RowDefinition Height="7*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Author Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <TextBlock Text="Book Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
             <TextBox Grid.Row="1" Margin="10" Width="150" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="2">
                 <DataGrid x:Name="dataGridDashboard">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Width="*">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Full Name" Width="*">
+                        <DataGridTextColumn Header="Title" Width="*">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Pen Name" Width="*">
+                        <DataGridTextColumn Header="Description" Width="*">
                         </DataGridTextColumn>
-                        <DataGridCheckBoxColumn Header="Has Nobel Prize" Width="*">
-                        </DataGridCheckBoxColumn>
+                        <DataGridTextColumn Header="Publisher" Width="*">
+                        </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
