@@ -35,6 +35,13 @@ namespace RVAProject.ClientApp.UserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUser", ReplyAction="http://tempuri.org/IUserService/UpdateUserResponse")]
         System.Threading.Tasks.Task UpdateUserAsync(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserById", ReplyAction="http://tempuri.org/IUserService/GetUserByIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IUserService/GetUserByIdCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
+        RVAProject.Common.DTOs.UserDTO.UserInfo GetUserById(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserById", ReplyAction="http://tempuri.org/IUserService/GetUserByIdResponse")]
+        System.Threading.Tasks.Task<RVAProject.Common.DTOs.UserDTO.UserInfo> GetUserByIdAsync(System.Guid id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -86,6 +93,14 @@ namespace RVAProject.ClientApp.UserService {
         
         public System.Threading.Tasks.Task UpdateUserAsync(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData) {
             return base.Channel.UpdateUserAsync(updateUserData);
+        }
+        
+        public RVAProject.Common.DTOs.UserDTO.UserInfo GetUserById(System.Guid id) {
+            return base.Channel.GetUserById(id);
+        }
+        
+        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.UserDTO.UserInfo> GetUserByIdAsync(System.Guid id) {
+            return base.Channel.GetUserByIdAsync(id);
         }
     }
 }

@@ -254,6 +254,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\RVAProject.Common.DTOs.BookDTO.BookInfo.datasource" />
     <None Include="Properties\DataSources\RVAProject.Common.DTOs.PublisherDTO.PublisherInfo.datasource" />
+    <None Include="Properties\DataSources\RVAProject.Common.DTOs.UserDTO.UserInfo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -278,21 +279,6 @@
     <WCFMetadataStorage Include="Connected Services\BookService\" />
     <WCFMetadataStorage Include="Connected Services\PublisherService\" />
     <WCFMetadataStorage Include="Connected Services\UserService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\UserService\UserService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\UserService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\UserService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\UserService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\BookService\BookService.disco" />
@@ -320,6 +306,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\PublisherService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserService\UserService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

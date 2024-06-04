@@ -106,7 +106,9 @@
   <ItemGroup>
     <Compile Include="CustomAppException.cs" />
     <Compile Include="DTOs\AuthorDTO\AuthorInfo.cs" />
+    <Compile Include="DTOs\AuthorDTO\AuthorRequest.cs" />
     <Compile Include="DTOs\AuthorDTO\Extensions.cs" />
+    <Compile Include="DTOs\AuthorDTO\UpdateAuthorRequest.cs" />
     <Compile Include="DTOs\BookDTO\BookInfo.cs" />
     <Compile Include="DTOs\BookDTO\CreateBookRequest.cs" />
     <Compile Include="DTOs\BookDTO\Extensions.cs" />
