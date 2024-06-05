@@ -18,9 +18,9 @@ namespace RVAProject.ClientApp.Views
     /// <summary>
     /// Interaction logic for AddUser.xaml
     /// </summary>
-    public partial class AddUser : UserControl
+    public partial class BookFormView : UserControl
     {
-        public AddUser()
+        public BookFormView()
         {
             InitializeComponent();
         }

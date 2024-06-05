@@ -59,7 +59,7 @@ namespace RVAProject.ClientApp.ViewModels
 
         private void HandleUpdateBook()
         {
-            NavigationService.Instance.NavigateTo("updateBook", selectedBook);
+            NavigationService.Instance.NavigateTo("editBook", selectedBook);
         }
 
         private void HandleAddBook()

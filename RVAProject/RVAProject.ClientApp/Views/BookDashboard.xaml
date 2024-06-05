@@ -25,7 +25,7 @@
 
             <TextBlock Text="Book Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
             <StackPanel Grid.Row="2">
-                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Books}" AutoGenerateColumns="False">
+                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Books}" AutoGenerateColumns="False" SelectedValue="{Binding SelectedBook}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Id}">
                         </DataGridTextColumn>

@@ -58,7 +58,7 @@ namespace RVAProject.ClientApp.ViewModels
 
         private void HandleUpdateAuthor()
         {
-            NavigationService.Instance.NavigateTo("updateAuthor", selectedAuthor);
+            NavigationService.Instance.NavigateTo("editAuthor", selectedAuthor);
         }
 
         private void HandleAddAuthor()

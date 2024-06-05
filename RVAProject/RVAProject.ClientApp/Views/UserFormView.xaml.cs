@@ -5,9 +5,9 @@ namespace RVAProject.ClientApp.Views
     /// <summary>
     /// Interaction logic for RegisterView.xaml
     /// </summary>
-    public partial class RegisterView : UserControl
+    public partial class UserFormView : UserControl
     {
-        public RegisterView()
+        public UserFormView()
         {
             InitializeComponent();
         }

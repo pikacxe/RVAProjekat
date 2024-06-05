@@ -18,9 +18,9 @@ namespace RVAProject.ClientApp.Views
     /// <summary>
     /// Interaction logic for AddPublisherView.xaml
     /// </summary>
-    public partial class AddPublisherView : UserControl
+    public partial class PublisherFormView : UserControl
     {
-        public AddPublisherView()
+        public PublisherFormView()
         {
             InitializeComponent();
         }

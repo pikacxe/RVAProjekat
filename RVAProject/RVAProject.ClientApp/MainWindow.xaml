@@ -18,6 +18,9 @@
         <DataTemplate DataType="{x:Type viewModel:DashboardViewModel}">
             <view:DashboardView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:AuthorFormViewModel}">
+            <view:AuthorFormView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>

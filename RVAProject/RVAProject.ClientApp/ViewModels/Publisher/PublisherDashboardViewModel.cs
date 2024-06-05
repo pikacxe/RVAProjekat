@@ -54,7 +54,7 @@ namespace RVAProject.ClientApp.ViewModels
 
         private void HandleUpdatePublisher()
         {
-           NavigationService.Instance.NavigateTo("updatePublisher", selectedPublisher);
+           NavigationService.Instance.NavigateTo("editPublisher", selectedPublisher);
         }
 
         private void HandleAddPublisher()
