@@ -33,10 +33,6 @@ namespace RVAProject.ClientApp.ViewModels
             {
                 MessageBox.Show($"{fe.Message}");
             }
-            catch (CustomAppException cae)
-            {
-                MessageBox.Show($"{cae.Message}");
-            }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message}");   

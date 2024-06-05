@@ -13,23 +13,23 @@ namespace RVAProject.AppServices
     {
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task AddPublisher(PublisherRequest publisherRequest);
+        Task AddPublisher(PublisherRequest publisherRequest, string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task<IEnumerable<PublisherInfo>> GetAllPublishers();
+        Task<IEnumerable<PublisherInfo>> GetAllPublishers(string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task<PublisherInfo> GetPublisherById(Guid id);
+        Task<PublisherInfo> GetPublisherById(Guid id, string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task UpdatePublisher(UpdatePublisherRequest updatePublisherRequest);
+        Task UpdatePublisher(UpdatePublisherRequest updatePublisherRequest, string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task DeletePublisher(Guid id);
+        Task DeletePublisher(Guid id, string token);
 
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace RVAProject.Common.DTOs.AuthorDTO
 {
+    [DataContract]
     public class AuthorRequest
     {
         [DataMember]

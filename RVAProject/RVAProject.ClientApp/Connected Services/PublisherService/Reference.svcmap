@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="0086cbb3-5293-4ca7-8a2b-24b320431d00" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="de8ecf10-8f12-40a3-b448-1f7d25cdd2a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,14 +22,15 @@
     <MetadataSource Address="http://localhost:56951/PublisherService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PublisherService.wsdl" MetadataType="Wsdl" ID="3d93039f-ed48-4020-a506-53c0c1b6aa4f" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?wsdl" />
-    <MetadataFile FileName="PublisherService.disco" MetadataType="Disco" ID="49e9c7cb-24ad-4cb9-8936-c8f53f4c15e3" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?disco" />
-    <MetadataFile FileName="PublisherService.xsd" MetadataType="Schema" ID="d61e140a-fe59-4831-96c4-ec810ab85ed0" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd0" />
-    <MetadataFile FileName="PublisherService1.xsd" MetadataType="Schema" ID="a036de7c-7ab2-4901-96c4-27db239b6c68" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd2" />
-    <MetadataFile FileName="PublisherService2.xsd" MetadataType="Schema" ID="6587b8be-965f-43df-b398-20ef2a0c7bcc" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd1" />
-    <MetadataFile FileName="PublisherService3.xsd" MetadataType="Schema" ID="21881bbe-6300-43cb-b637-36a23077a107" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd3" />
-    <MetadataFile FileName="PublisherService4.xsd" MetadataType="Schema" ID="b6db00b2-9699-4768-abc9-c4c1b61d9d49" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd5" />
-    <MetadataFile FileName="PublisherService5.xsd" MetadataType="Schema" ID="89f0966a-bd6f-4bdd-91c8-6e7cc4113f6a" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PublisherService.wsdl" MetadataType="Wsdl" ID="243de674-7b35-4938-8fdb-362324d6aae1" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?wsdl" />
+    <MetadataFile FileName="PublisherService.disco" MetadataType="Disco" ID="c0a1f0b4-2185-4b9a-9a0d-03a1d513ec4b" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?disco" />
+    <MetadataFile FileName="PublisherService.xsd" MetadataType="Schema" ID="84836766-99a7-4692-8bc0-edd58dcd507d" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PublisherService1.xsd" MetadataType="Schema" ID="ddc1a221-02fa-4e55-9203-7573c82a3eb0" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PublisherService2.xsd" MetadataType="Schema" ID="1ae6a500-af57-4205-8ddc-7d46dbc02432" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PublisherService3.xsd" MetadataType="Schema" ID="9026efe5-0f38-4ac6-9166-f2f843a214c8" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PublisherService4.xsd" MetadataType="Schema" ID="9bdd030e-5a28-4606-8584-09773bf49ddb" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PublisherService5.xsd" MetadataType="Schema" ID="c264749a-4216-4a18-bc7b-58090a8f39e8" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PublisherService6.xsd" MetadataType="Schema" ID="16d7d3ff-f75a-45c3-a7f4-c26c9029ae41" SourceId="1" SourceUrl="http://localhost:56951/PublisherService.svc?xsd=xsd6" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

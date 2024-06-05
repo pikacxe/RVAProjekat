@@ -8,6 +8,7 @@
       <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" />
       <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
       <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" />
+      <xsd:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPublisherService_AddPublisher_InputMessage">

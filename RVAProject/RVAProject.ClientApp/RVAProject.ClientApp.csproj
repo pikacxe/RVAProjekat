@@ -307,6 +307,12 @@
     <None Include="Connected Services\BookService\BookService5.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\BookService\BookService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BookService\BookService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\PublisherService\PublisherService.wsdl" />
     <None Include="Connected Services\PublisherService\PublisherService.xsd">
       <SubType>Designer</SubType>
@@ -324,6 +330,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\PublisherService\PublisherService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PublisherService\PublisherService6.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\UserService\UserService.wsdl" />
@@ -364,6 +373,21 @@
     <WCFMetadataStorage Include="Connected Services\BookService\" />
     <WCFMetadataStorage Include="Connected Services\PublisherService\" />
     <WCFMetadataStorage Include="Connected Services\UserService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\AuthorService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\BookService\BookService.disco" />

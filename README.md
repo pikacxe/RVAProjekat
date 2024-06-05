@@ -27,11 +27,12 @@ Zadate podatke ne menjati:
 - [ ] UML za svaki od obrazaca
 - [X] Singleton (NavigationService)
 - [X] Factory (ViewModelFactory)
-- [ ] Observer (INotifyPropertyChanged)
+- [X] Observer (INotifyPropertyChanged)
 - [ ] Command (Undo & Redo)
+- [X] Extensions (DTOs)
 
 # TODO
-- [ ] Prijava korisnika
+- [X] Prijava korisnika
 - [ ] Odjava korisnika
 - [X] Kreiranje inicialnog admina ('admin', 'admin')
   - [ ] Admin moze izvrsavati sve akcije
@@ -55,9 +56,9 @@ Zadate podatke ne menjati:
 
 
 ## Serverska aplikacija (WCF)
-- [ ] Podrzati vise klijenata odjednom
+- [X] Podrzati vise klijenata odjednom
 - [X] Podaci se cuvaju u bazu (Postgres & EF6)
 - [X] ServiceContract za klijentsku aplikaciju
-- [ ] Logovanje u tekstualnoj datoteci [Log4net](https://logging.apache.org/log4net/)
-  - [ ] Logovanje na klijentu i serveru, informacije o vremenu kada se događaj odigrao, tipu događaja
+- [X] Logovanje u tekstualnoj datoteci [Log4net](https://logging.apache.org/log4net/)
+  - [X] Logovanje na klijentu i serveru, informacije o vremenu kada se događaj odigrao, tipu događaja
 (DEBUG, INFO, WARN, ERROR, FATAL) i poruci koja opisuje sam događaj.

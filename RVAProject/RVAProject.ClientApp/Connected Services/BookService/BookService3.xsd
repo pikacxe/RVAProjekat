@@ -1,34 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" />
   <xs:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="BookInfo">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:element name="BookInfo" nillable="true" type="tns:BookInfo" />
-  <xs:complexType name="ArrayOfBookInfo">
+  <xs:complexType name="PublisherInfo">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookInfo" nillable="true" type="tns:BookInfo" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfBookInfo" nillable="true" type="tns:ArrayOfBookInfo" />
-  <xs:complexType name="CreateBookRequest">
-    <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AuthorIds" nillable="true" type="q1:ArrayOfguid" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PublisherId" type="ser:guid" />
-      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CreateBookRequest" nillable="true" type="tns:CreateBookRequest" />
-  <xs:complexType name="UpdateBookRequest">
-    <xs:sequence>
-      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AuthorIds" nillable="true" type="q2:ArrayOfguid" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" minOccurs="0" name="Books" nillable="true" type="q1:ArrayOfBookInfo" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="PublisherId" type="ser:guid" />
-      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="UpdateBookRequest" nillable="true" type="tns:UpdateBookRequest" />
+  <xs:element name="PublisherInfo" nillable="true" type="tns:PublisherInfo" />
 </xs:schema>

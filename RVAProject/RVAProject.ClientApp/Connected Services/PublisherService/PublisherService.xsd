@@ -6,6 +6,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="publisherRequest" nillable="true" type="q1:PublisherRequest" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -16,7 +17,9 @@
   </xs:element>
   <xs:element name="GetAllPublishers">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllPublishersResponse">
@@ -30,6 +33,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q3:guid" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -44,6 +48,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="updatePublisherRequest" nillable="true" type="q5:UpdatePublisherRequest" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -56,6 +61,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q6:guid" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

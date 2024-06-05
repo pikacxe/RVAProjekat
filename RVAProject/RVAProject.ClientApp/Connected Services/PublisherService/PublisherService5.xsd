@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" />
   <xs:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="Exception">
+  <xs:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" />
+  <xs:complexType name="ArrayOfBookInfo">
     <xs:sequence>
-      <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookInfo" nillable="true" type="tns:BookInfo" />
     </xs:sequence>
-    <xs:attribute ref="ser:FactoryType" />
   </xs:complexType>
-  <xs:element name="Exception" nillable="true" type="tns:Exception" />
+  <xs:element name="ArrayOfBookInfo" nillable="true" type="tns:ArrayOfBookInfo" />
+  <xs:complexType name="BookInfo">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" minOccurs="0" name="Authors" nillable="true" type="q1:ArrayOfAuthorInfo" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="Publisher" nillable="true" type="q2:PublisherInfo" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BookInfo" nillable="true" type="tns:BookInfo" />
 </xs:schema>

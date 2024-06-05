@@ -1,6 +1,5 @@
 ﻿using RVAProject.Common;
 using RVAProject.Common.DTOs.UserDTO;
-using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
@@ -16,14 +15,14 @@ namespace RVAProject.AppServices
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task AddUser(UserRequest addUserData);
+        Task AddUser(UserRequest addUserData, string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task UpdateUser(UpdateUserRequest updateUserData);
+        Task UpdateUser(UpdateUserRequest updateUserData, string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task<UserInfo> GetUserById(Guid id);
+        Task<UserInfo> GetUserById(string token);
     }
 }
