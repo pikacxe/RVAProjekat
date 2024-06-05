@@ -38,6 +38,15 @@
   <wsdl:message name="IPublisherService_GetPublisherById_CustomAppExceptionFault_FaultMessage">
     <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q3:CustomAppException" />
   </wsdl:message>
+  <wsdl:message name="IPublisherService_GetPublisherByPartialName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublisherByPartialName" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_GetPublisherByPartialName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublisherByPartialNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublisherService_GetPublisherByPartialName_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q4:CustomAppException" />
+  </wsdl:message>
   <wsdl:message name="IPublisherService_UpdatePublisher_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePublisher" />
   </wsdl:message>
@@ -45,7 +54,7 @@
     <wsdl:part name="parameters" element="tns:UpdatePublisherResponse" />
   </wsdl:message>
   <wsdl:message name="IPublisherService_UpdatePublisher_CustomAppExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q4:CustomAppException" />
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q5:CustomAppException" />
   </wsdl:message>
   <wsdl:message name="IPublisherService_DeletePublisher_InputMessage">
     <wsdl:part name="parameters" element="tns:DeletePublisher" />
@@ -54,7 +63,7 @@
     <wsdl:part name="parameters" element="tns:DeletePublisherResponse" />
   </wsdl:message>
   <wsdl:message name="IPublisherService_DeletePublisher_CustomAppExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q5:CustomAppException" />
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q6:CustomAppException" />
   </wsdl:message>
   <wsdl:portType name="IPublisherService">
     <wsdl:operation name="AddPublisher">
@@ -71,6 +80,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPublisherService/GetPublisherById" message="tns:IPublisherService_GetPublisherById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPublisherService/GetPublisherByIdResponse" message="tns:IPublisherService_GetPublisherById_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IPublisherService/GetPublisherByIdCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IPublisherService_GetPublisherById_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublisherByPartialName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublisherService/GetPublisherByPartialName" message="tns:IPublisherService_GetPublisherByPartialName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublisherService/GetPublisherByPartialNameResponse" message="tns:IPublisherService_GetPublisherByPartialName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPublisherService/GetPublisherByPartialNameCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IPublisherService_GetPublisherByPartialName_CustomAppExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdatePublisher">
       <wsdl:input wsaw:Action="http://tempuri.org/IPublisherService/UpdatePublisher" message="tns:IPublisherService_UpdatePublisher_InputMessage" />
@@ -111,6 +125,18 @@
     </wsdl:operation>
     <wsdl:operation name="GetPublisherById">
       <soap:operation soapAction="http://tempuri.org/IPublisherService/GetPublisherById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublisherByPartialName">
+      <soap:operation soapAction="http://tempuri.org/IPublisherService/GetPublisherByPartialName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

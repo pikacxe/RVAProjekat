@@ -365,15 +365,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AuthorService\" />
     <WCFMetadataStorage Include="Connected Services\BookService\" />
     <WCFMetadataStorage Include="Connected Services\PublisherService\" />
     <WCFMetadataStorage Include="Connected Services\UserService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RVAProject.Common\RVAProject.Common.csproj">
+      <Project>{65aa98b6-a2b8-4776-b926-437e6312958e}</Project>
+      <Name>RVAProject.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\AuthorService\AuthorService.disco" />
@@ -431,27 +436,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\UserService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RVAProject.Common\RVAProject.Common.csproj">
-      <Project>{65aa98b6-a2b8-4776-b926-437e6312958e}</Project>
-      <Name>RVAProject.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AuthorService\AuthorService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AuthorService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AuthorService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AuthorService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

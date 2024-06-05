@@ -49,7 +49,7 @@ namespace RVAProject.AppServices
             if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
             {
                 var publishers = await _publisherRepository.GetAllPublishers();
-                Logger.Info("Publishers get method are successfully executed");
+                Logger.Info("Publishers get method is successfully executed");
                 return publishers.AsPublisherInfoList();
             }
             else
@@ -70,7 +70,28 @@ namespace RVAProject.AppServices
                     throw new CustomAppException("Publisher does not exist");
                 }
 
-                Logger.Info($" Publisher with id: {id} is deleted");
+                Logger.Info($" Publishers get method is successfully executed");
+                return existingPublisher.AsPublisherInfo();
+            }
+            else
+            {
+                throw new CustomAppException("Your account does not exist in our base.");
+            }
+        }
+
+        public async Task<PublisherInfo> GetPublisherByPartialName(string filter, string token)
+        {
+            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
+            {
+                var existingPublisher = await _publisherRepository.GetPublisherByPartialName(filter);
+
+                if (existingPublisher == null)
+                {
+                    Logger.Error($" Publisher whos name contains {filter} does not exist");
+                    throw new CustomAppException("Publisher does not exist");
+                }
+
+                Logger.Info($" Publishers get method is successfully executed");
                 return existingPublisher.AsPublisherInfo();
             }
             else

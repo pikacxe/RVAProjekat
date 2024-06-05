@@ -1,11 +1,11 @@
 ﻿using RVAProject.ClientApp.Modules;
 using RVAProject.ClientApp.Services;
+using RVAProject.ClientApp.Services.Impl;
 using RVAProject.Common.DTOs.UserDTO;
+using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows;
-using RVAProject.ClientApp.Services.Impl;
-using System;
 using RVAProject.ClientApp.Helpers;
 
 namespace RVAProject.ClientApp.ViewModels

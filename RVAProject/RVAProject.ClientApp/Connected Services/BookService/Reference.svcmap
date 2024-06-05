@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="30ecde44-083c-47af-a472-f782efed7349" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="76701bb9-4891-47c7-998a-d735d0904b88" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,16 +22,16 @@
     <MetadataSource Address="http://localhost:56951/BookService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="BookService.wsdl" MetadataType="Wsdl" ID="8ebbae4f-ecab-4463-b4d8-40cb0d6ae9ac" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?wsdl" />
-    <MetadataFile FileName="BookService.xsd" MetadataType="Schema" ID="2eca2cd5-a0ea-4d25-83ea-7e64f71f837d" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd5" />
-    <MetadataFile FileName="BookService1.xsd" MetadataType="Schema" ID="94f9b2dd-25b1-4416-9f24-44c2be5dab3d" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd6" />
-    <MetadataFile FileName="BookService2.xsd" MetadataType="Schema" ID="5ab3945c-9b03-4503-909f-face0c3acc90" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd7" />
-    <MetadataFile FileName="BookService3.xsd" MetadataType="Schema" ID="0226078e-308d-4532-b930-6844a8ce1c22" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd4" />
-    <MetadataFile FileName="BookService4.xsd" MetadataType="Schema" ID="db3b33f0-018d-4623-a596-57462e9add25" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd1" />
-    <MetadataFile FileName="BookService5.xsd" MetadataType="Schema" ID="7a87f7af-48ef-44dd-bb14-31df28c4fd72" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd2" />
-    <MetadataFile FileName="BookService6.xsd" MetadataType="Schema" ID="b75aa8ce-906d-4b2a-873d-d09a874f0825" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd3" />
-    <MetadataFile FileName="BookService7.xsd" MetadataType="Schema" ID="aa32b2a1-ae86-44fc-bf2f-43eb4fd96c35" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd0" />
-    <MetadataFile FileName="BookService.disco" MetadataType="Disco" ID="52bb4fee-f131-4dd4-b502-938b37a50d82" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?disco" />
+    <MetadataFile FileName="BookService.wsdl" MetadataType="Wsdl" ID="48f477de-8834-4eca-bb78-770a46d17411" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?wsdl" />
+    <MetadataFile FileName="BookService.xsd" MetadataType="Schema" ID="9a9622b4-6c5e-41eb-8ecd-0397265ab921" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BookService1.xsd" MetadataType="Schema" ID="f2796899-4791-4c05-b7e8-ca774c88d6c4" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd6" />
+    <MetadataFile FileName="BookService2.xsd" MetadataType="Schema" ID="cebe1fdd-5cc6-4a5b-9808-525c93261517" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd7" />
+    <MetadataFile FileName="BookService3.xsd" MetadataType="Schema" ID="dcd1b906-c4bc-45c5-8cba-60c126f482cf" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BookService4.xsd" MetadataType="Schema" ID="6aef20a9-a580-4f4a-a374-b8c539e9184d" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BookService5.xsd" MetadataType="Schema" ID="c94105d9-da8d-479f-8b40-eaca9836ec17" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BookService6.xsd" MetadataType="Schema" ID="3072a7ac-d2f1-4434-a344-e791f5c9fb9a" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BookService7.xsd" MetadataType="Schema" ID="d8943475-81e2-4743-bf8f-3f8e3656ebc2" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BookService.disco" MetadataType="Disco" ID="838a9f66-a963-4c1f-9017-4925e7fd22af" SourceId="1" SourceUrl="http://localhost:56951/BookService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

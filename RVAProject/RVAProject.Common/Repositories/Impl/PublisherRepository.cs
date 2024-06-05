@@ -36,6 +36,12 @@ namespace RVAProject.Common.Repositories.Impl
             return await _dbContext.Publishers.Include(p => p.Books).FirstOrDefaultAsync(p => p.Id == id);
         }
 
+        public async Task<Publisher> GetPublisherByPartialName(string name)
+        {
+            return await _dbContext.Publishers.Include(p => p.Books)
+                .FirstOrDefaultAsync(p => p.Name.ToLower().Contains(name.ToLower()));
+        }
+
         public async Task SaveChangesPublisher()
         {
             await _dbContext.SaveChangesAsync();

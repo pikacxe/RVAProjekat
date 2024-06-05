@@ -36,6 +36,14 @@ namespace RVAProject.ClientApp.PublisherService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPublisherService/GetPublisherById", ReplyAction="http://tempuri.org/IPublisherService/GetPublisherByIdResponse")]
         System.Threading.Tasks.Task<RVAProject.Common.DTOs.PublisherDTO.PublisherInfo> GetPublisherByIdAsync(System.Guid id, string token);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPublisherService/GetPublisherByPartialName", ReplyAction="http://tempuri.org/IPublisherService/GetPublisherByPartialNameResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IPublisherService/GetPublisherByPartialNameCustomAppExceptionF" +
+            "ault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
+        RVAProject.Common.DTOs.PublisherDTO.PublisherInfo GetPublisherByPartialName(string filter, string token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPublisherService/GetPublisherByPartialName", ReplyAction="http://tempuri.org/IPublisherService/GetPublisherByPartialNameResponse")]
+        System.Threading.Tasks.Task<RVAProject.Common.DTOs.PublisherDTO.PublisherInfo> GetPublisherByPartialNameAsync(string filter, string token);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPublisherService/UpdatePublisher", ReplyAction="http://tempuri.org/IPublisherService/UpdatePublisherResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IPublisherService/UpdatePublisherCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
         void UpdatePublisher(RVAProject.Common.DTOs.PublisherDTO.UpdatePublisherRequest updatePublisherRequest, string token);
@@ -100,6 +108,14 @@ namespace RVAProject.ClientApp.PublisherService {
         
         public System.Threading.Tasks.Task<RVAProject.Common.DTOs.PublisherDTO.PublisherInfo> GetPublisherByIdAsync(System.Guid id, string token) {
             return base.Channel.GetPublisherByIdAsync(id, token);
+        }
+        
+        public RVAProject.Common.DTOs.PublisherDTO.PublisherInfo GetPublisherByPartialName(string filter, string token) {
+            return base.Channel.GetPublisherByPartialName(filter, token);
+        }
+        
+        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.PublisherDTO.PublisherInfo> GetPublisherByPartialNameAsync(string filter, string token) {
+            return base.Channel.GetPublisherByPartialNameAsync(filter, token);
         }
         
         public void UpdatePublisher(RVAProject.Common.DTOs.PublisherDTO.UpdatePublisherRequest updatePublisherRequest, string token) {
