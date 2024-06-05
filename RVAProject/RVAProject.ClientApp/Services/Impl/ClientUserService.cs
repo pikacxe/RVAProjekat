@@ -18,40 +18,24 @@ namespace RVAProject.ClientApp.Services.Impl
             _client = new UserServiceClient();
         }
 
-        public async Task<IEnumerable<UserInfo>> GetAllAsync()
+        public async Task<UserInfo> GetUserByIdAsync( string token)
         {
-            throw new NotImplementedException();
-           //return await _client.GetAllAsync();
+            return await _client.GetUserByIdAsync(token);
         }
 
-        public async Task<UserInfo> GetUserByIdAsync(Guid id)
+        public async Task AddUserAsync(UserRequest userRequest, string token)
         {
-            return await _client.GetUserByIdAsync(id);
-        }
-
-        public async Task AddUserAsync(UserRequest userRequest)
-        {
-            await _client.AddUserAsync(userRequest);
+            await _client.AddUserAsync(userRequest, token);
         }
 
         public async Task<string> LoginAsync(LogInRequest loginRequest)
         {
-            var token = await _client.LogInAsync(loginRequest);
-            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
-            {
-                var userId = principal.FindFirst("user_id").Value;
-                var userRole = principal.FindFirst("user_role").Value;
-                return token;
-            }
-            else
-            {
-               throw new CustomAppException("Invalid token");
-            }
+            return await _client.LogInAsync(loginRequest);
         }
 
-        public async Task UpdateUserAsync(UpdateUserRequest userRequest)
+        public async Task UpdateUserAsync(UpdateUserRequest userRequest, string token)
         {
-            await _client.UpdateUserAsync(userRequest);
+            await _client.UpdateUserAsync(userRequest, token);
         }
     }
 }

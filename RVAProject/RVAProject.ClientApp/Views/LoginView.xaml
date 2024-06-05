@@ -19,7 +19,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock
@@ -46,19 +45,10 @@
             Margin="10"
             Grid.Row="4"
             Text="{Binding Password}"/>
-        <TextBlock
-            Grid.Row="5"
-            Margin="5"
-            >
-            <Hyperlink Command="{Binding ToRegisterView}">
-                Don't have a acount? Register here
-            </Hyperlink>
-        </TextBlock>
         <Button
             Margin="10"
-            Grid.Row="6"
+            Grid.Row="5"
             Command="{Binding LoginCommand}"
             >Login</Button>
-        
     </Grid>
 </UserControl>

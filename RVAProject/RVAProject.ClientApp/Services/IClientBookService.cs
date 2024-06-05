@@ -7,11 +7,11 @@ namespace RVAProject.ClientApp.Services
 {
     public interface IClientBookService
     {
-        Task CreateBookAsync(CreateBookRequest request);
-        Task UpdateBookAsync(UpdateBookRequest request);
-        Task DeleteBookAsync(Guid id);
-        Task<BookInfo> GetBookAsync(Guid id);
-        Task<IEnumerable<BookInfo>> GetAllBooksAsync();
-        Task<IEnumerable<BookInfo>> GetBookForPublisherAsync(Guid publisherId);
+        Task CreateBookAsync(CreateBookRequest request, string token);
+        Task UpdateBookAsync(UpdateBookRequest request, string token);
+        Task DeleteBookAsync(Guid id, string token);
+        Task<BookInfo> GetBookAsync(Guid id, string token);
+        Task<IEnumerable<BookInfo>> GetAllBooksAsync(string token);
+        Task<IEnumerable<BookInfo>> GetBookForPublisherAsync(Guid publisherId, string token);
     }
 }

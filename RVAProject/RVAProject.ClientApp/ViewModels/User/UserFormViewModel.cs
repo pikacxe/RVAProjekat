@@ -49,7 +49,7 @@ namespace RVAProject.ClientApp.ViewModels
                         Id = CurrentUser.Id,
                         FirstName = CurrentUser.FirstName,
                         LastName = CurrentUser.LastName,
-                    });
+                    },NavigationService.Instance.serviceToken);
                     // TODO log success
                 }
                 else
@@ -60,7 +60,7 @@ namespace RVAProject.ClientApp.ViewModels
                         Password = Password,
                         FirstName = CurrentUser.FirstName,
                         LastName = CurrentUser.LastName,
-                    });
+                    }, NavigationService.Instance.serviceToken);
                     // TODO log success
                 }
             }

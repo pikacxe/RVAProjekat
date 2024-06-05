@@ -17,29 +17,29 @@ namespace RVAProject.ClientApp.Services.Impl
             _client = new AuthorServiceClient();
         }
 
-        public async Task CreateAuthorAsync(AuthorRequest request)
+        public async Task CreateAuthorAsync(AuthorRequest request, string token)
         {
-            await _client.AddAuthorAsync(request);
+            await _client.AddAuthorAsync(request, token);
         }
 
-        public async Task DeleteAuthorAsync(Guid id)
+        public async Task DeleteAuthorAsync(Guid id, string token)
         {
-            await _client.DeleteAuthorAsync(id);
+            await _client.DeleteAuthorAsync(id, token);
         }
 
-        public async Task<IEnumerable<AuthorInfo>> GetAllAuthorsAsync()
+        public async Task<IEnumerable<AuthorInfo>> GetAllAuthorsAsync(string token)
         {
-           return await _client.GetAllAuthorsAsync();
+           return await _client.GetAllAuthorsAsync(token);
         }
 
-        public async Task<AuthorInfo> GetAuthorAsync(Guid id)
+        public async Task<AuthorInfo> GetAuthorAsync(Guid id, string token)
         {
-            return await _client.GetAuthorByIdAsync(id);
+            return await _client.GetAuthorByIdAsync(id, token);
         }
 
-        public async Task UpdateAuthorAsync(UpdateAuthorRequest request)
+        public async Task UpdateAuthorAsync(UpdateAuthorRequest request, string token)
         {
-            await _client.UpdateAuthorAsync(request);
+            await _client.UpdateAuthorAsync(request, token);
         }
     }
 }

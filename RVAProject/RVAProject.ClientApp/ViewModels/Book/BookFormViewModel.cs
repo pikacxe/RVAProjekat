@@ -60,7 +60,7 @@ namespace RVAProject.ClientApp.ViewModels
                         Description = CurrentBook.Description,
                         PublisherId = CurrentBook.Publisher.Id,
                         
-                    });
+                    }, NavigationService.Instance.serviceToken);
                 }
                 else
                 {
@@ -70,7 +70,7 @@ namespace RVAProject.ClientApp.ViewModels
                         AuthorIds = AuthorIds,
                         Description = CurrentBook.Description,
                         PublisherId = PublisherId
-                    });
+                    }, NavigationService.Instance.serviceToken);
                 }
             }
             catch (Exception e)
