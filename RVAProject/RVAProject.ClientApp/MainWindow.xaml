@@ -21,6 +21,15 @@
         <DataTemplate DataType="{x:Type viewModel:AuthorFormViewModel}">
             <view:AuthorFormView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:UserFormViewModel}">
+            <view:UserFormView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:BookFormViewModel}">
+            <view:BookFormView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:PublisherFormViewModel}">
+            <view:PublisherFormView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -41,10 +50,18 @@
             Command="{Binding NavigateBackCommand, Source={x:Static local:NavigationService.Instance}}">
             🔙
         </Button>
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="100"
+            Content="Logout"
+            Command="{Binding Logout}"
+            Visibility="{Binding BackButtonVisibility,  Source={x:Static local:NavigationService.Instance}}"/>
         <ContentControl Grid.Row="1"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Padding="10"
+                        
                         Content="{Binding CurrentView, Source={x:Static local:NavigationService.Instance}}"/>
     </Grid>
 </Window>

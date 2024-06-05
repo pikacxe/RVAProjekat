@@ -10,6 +10,7 @@ namespace RVAProject.ClientApp.Views
         public UserFormView()
         {
             InitializeComponent();
+            this.DataContext = NavigationService.Instance.CurrentView;
         }
     }
 }

@@ -24,20 +24,18 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Book Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-            <StackPanel Grid.Row="2">
-                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Books}" AutoGenerateColumns="False" SelectedValue="{Binding SelectedBook}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Id}">
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}">
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}">
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="Publisher" Width="*" Binding="{Binding Publisher}">
-                        </DataGridTextColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </StackPanel>
+            <DataGrid x:Name="dataGridDashboard" Grid.Row="2" Margin="5" ItemsSource="{Binding Books}" IsReadOnly="True" AutoGenerateColumns="False" SelectedValue="{Binding SelectedBook}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Id}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Publisher" Width="*" Binding="{Binding Publisher, XPath=Name}">
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
 
 
@@ -55,8 +53,8 @@
 
             <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Height="40" Content="R" Command="{Binding LoadBooks}"/>
             <Button Grid.Row="3" Content="Add Instance" FontSize="20" Command="{Binding AddBook}"/>
-            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True" Command="{Binding UpdateBook}"/>
-            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True" Command="{Binding DeleteBook}"/>
+            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="{Binding isSelectedBook}" Command="{Binding UpdateBook}"/>
+            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="{Binding isSelectedBook}" Command="{Binding DeleteBook}"/>
 
         </Grid>
     </Grid>

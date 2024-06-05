@@ -7,9 +7,6 @@
              xmlns:viewModel="clr-namespace:RVAProject.ClientApp.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <viewModel:PublisherFormViewModel/>
-    </UserControl.DataContext>
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="85"/>
@@ -27,7 +24,7 @@
             FontSize="45"
             TextAlignment="Center"
             VerticalAlignment="Bottom"
-            Text="Add Publisher"/>
+            Text="{Binding Title}"/>
         <Label
             Grid.Row="1"
             VerticalAlignment="Center"
@@ -55,6 +52,6 @@
             Margin="5"
             Grid.Row="6"
             Text="{Binding CurrentPublisher.Address}"/>
-        <Button Grid.Row="7" Margin="5" Width="100" Content="Add" Command="{Binding Submit}"/>
+        <Button Grid.Row="7" Margin="5" Width="100" Content="Submit" Command="{Binding Submit}"/>
     </Grid>
 </UserControl>

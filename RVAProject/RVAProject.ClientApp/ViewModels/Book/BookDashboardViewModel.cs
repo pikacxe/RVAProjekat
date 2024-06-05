@@ -26,11 +26,15 @@ namespace RVAProject.ClientApp.ViewModels
         public BookInfo SelectedBook
         {
             get => selectedBook;
-            set => SetProperty(ref selectedBook, value);
+            set
+            {
+                SetProperty(ref selectedBook, value);
+                OnPropertyChanged("isSelectedBook");
+            }
         }
         public bool isSelectedBook => SelectedBook != null;
 
-        public AppAsyncCommand<IEnumerable<BookInfo>> LoadBooks { get; private set; }
+        public AppAsyncCommand LoadBooks { get; private set; }
         public AppCommand AddBook { get; private set; }
         public AppCommand UpdateBook { get; private set; }
         public AppAsyncCommand DeleteBook { get; private set; }
@@ -40,7 +44,7 @@ namespace RVAProject.ClientApp.ViewModels
             // Load data here
             books = new ObservableCollection<BookInfo>();
             _service = new ClientBookService();
-            LoadBooks = new AppAsyncCommand<IEnumerable<BookInfo>>(HandleLoadBooks);
+            LoadBooks = new AppAsyncCommand(HandleLoadBooks);
             AddBook = new AppCommand(HandleAddBook);
             UpdateBook = new AppCommand(HandleUpdateBook);
             DeleteBook = new AppAsyncCommand(HandleDeleteBook);
@@ -51,8 +55,8 @@ namespace RVAProject.ClientApp.ViewModels
             try
             {
                 await _service.DeleteBookAsync(selectedBook.Id, NavigationService.Instance.serviceToken);
-                Books.Remove(selectedBook);
                 Logger.Info($"Book with title: {selectedBook.Title} removed");
+                Books.Remove(selectedBook);
                 selectedBook = default;
             }
             catch (Exception e)
@@ -71,7 +75,7 @@ namespace RVAProject.ClientApp.ViewModels
             NavigationService.Instance.NavigateTo("addBook");
         }
 
-        private async Task HandleLoadBooks(IEnumerable<BookInfo> enumerable)
+        private async Task HandleLoadBooks()
         {
             var books = await _service.GetAllBooksAsync(NavigationService.Instance.serviceToken);
             Books.Clear();

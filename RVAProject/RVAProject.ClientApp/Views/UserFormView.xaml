@@ -7,9 +7,6 @@
              xmlns:viewModel="clr-namespace:RVAProject.ClientApp.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <viewModel:UserFormViewModel/>
-    </UserControl.DataContext>
     <Grid HorizontalAlignment="Center"
           VerticalAlignment="Center">
         <Grid.RowDefinitions>
@@ -30,7 +27,7 @@
             FontSize="45"
             TextAlignment="Center"
             VerticalAlignment="Bottom"
-            Text="Add User"/>
+            Text="{Binding Title}"/>
         <Label
             Grid.Row="1"
             VerticalAlignment="Center"
@@ -62,10 +59,12 @@
             Grid.Row="7"
             VerticalAlignment="Bottom"
             Margin="5"
+            Visibility="{Binding visibilityUpdate}"
             Content="Password" />
         <TextBox
             Margin="5"
             Grid.Row="8"
+            Visibility="{Binding visibilityUpdate}"
             Text="{Binding Password}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="9">
             <Label
@@ -74,7 +73,7 @@
             Margin="5"
             Content="Is admin" />
             <CheckBox Margin="5, 10" IsChecked="{Binding CurrentUser.isAdmin}"/>
-            <Button Content="Add" Width="90" Margin="5" Command="{Binding Submit}"/>
+            <Button Content="Submit" Width="90" Margin="5" Command="{Binding Submit}"/>
         </StackPanel>
     </Grid>
 </UserControl>

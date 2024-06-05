@@ -24,7 +24,11 @@ namespace RVAProject.ClientApp.ViewModels
         public AuthorInfo SelectedAuthor
         {
             get => selectedAuthor;
-            set => SetProperty(ref selectedAuthor, value);
+            set
+            {
+                SetProperty(ref selectedAuthor, value);
+                OnPropertyChanged("isSelectedAuthor");
+            }
         }
         public bool isSelectedAuthor => SelectedAuthor != null;
         public AppAsyncCommand LoadAuthors { get; private set; }
@@ -51,7 +55,7 @@ namespace RVAProject.ClientApp.ViewModels
                 Logger.Info(" Author deleted");
                 selectedAuthor = default;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Logger.Error(" Author delete error");
                 Console.WriteLine(e.Message);

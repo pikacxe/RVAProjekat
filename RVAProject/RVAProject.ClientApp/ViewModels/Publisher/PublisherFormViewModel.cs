@@ -25,6 +25,7 @@ namespace RVAProject.ClientApp.ViewModels
         public PublisherFormViewModel()
         {
             Title = "Add Publisher";
+            currentPublisher = new PublisherInfo();
             isUpdate = false;
             Submit = new AppAsyncCommand(OnSubmit);
         }
@@ -62,6 +63,7 @@ namespace RVAProject.ClientApp.ViewModels
                     }, NavigationService.Instance.serviceToken);
                     Logger.Info($" Publisher named {CurrentPublisher.Name} added");
                 }
+                NavigationService.Instance.NavigateTo("dashboard");
             }
             catch (Exception ex)
             {
