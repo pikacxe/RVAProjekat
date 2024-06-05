@@ -62,13 +62,7 @@
             VerticalAlignment="Bottom"
             Margin="5"
             Content="Authors" />
-        <ListView Grid.Row="8" Margin="5">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <CheckBox />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        
         <Button Grid.Row="9" Margin="5" Width="100" Content="Add"/>
     </Grid>
 </UserControl>
