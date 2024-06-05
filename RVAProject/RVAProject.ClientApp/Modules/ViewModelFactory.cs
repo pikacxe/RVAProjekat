@@ -15,7 +15,7 @@ namespace RVAProject.ClientApp.Modules
                 case "login": return new LoginViewModel();
                 case "dashboard": return new DashboardViewModel();
                 case "adduser": return new UserFormViewModel();
-                case "edituser": return new UserFormViewModel(model as UserInfo);
+                case "edituser": return new UserFormViewModel(true);
                 case "addpublisher": return new PublisherFormViewModel();
                 case "editpublisher": return new PublisherFormViewModel(model as PublisherInfo);
                 case "addbook": return new BookFormViewModel();

@@ -1,9 +1,12 @@
 ﻿using RVAProject.ClientApp.Helpers;
 using RVAProject.ClientApp.Modules;
 using RVAProject.ClientApp.UserService;
+using RVAProject.Common;
 using RVAProject.Common.DTOs.UserDTO;
 using System;
+using System.ServiceModel;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RVAProject.ClientApp.ViewModels
 {
@@ -15,8 +18,14 @@ namespace RVAProject.ClientApp.ViewModels
         public UserInfo CurrentUser
         {
             get { return currentUser; }
-            set { SetProperty(ref currentUser, value); }
+            set
+            {
+                SetProperty(ref currentUser, value);
+                OnPropertyChanged("isAdmin");
+            }
         }
+
+        public Visibility visibilityUpdate => isUpdate ? Visibility.Hidden : Visibility.Visible;
         private string password;
         public string Password
         {
@@ -30,12 +39,14 @@ namespace RVAProject.ClientApp.ViewModels
         {
             Title = "Add User";
             isUpdate = false;
+            CurrentUser = new UserInfo();
+            Submit = new AppAsyncCommand(OnSubmit);
         }
-        public UserFormViewModel(UserInfo userInfo)
+        public UserFormViewModel(bool isEdit)
         {
             Title = "Edit User";
-            isUpdate = true;
-            CurrentUser = userInfo;
+            isUpdate = isEdit;
+            CurrentUser = _client.GetUserById(NavigationService.Instance.serviceToken);
             Submit = new AppAsyncCommand(OnSubmit);
         }
 
@@ -50,7 +61,7 @@ namespace RVAProject.ClientApp.ViewModels
                         Id = CurrentUser.Id,
                         FirstName = CurrentUser.FirstName,
                         LastName = CurrentUser.LastName,
-                    },NavigationService.Instance.serviceToken);
+                    }, NavigationService.Instance.serviceToken);
                     Logger.Info($"User named {CurrentUser.FirstName} updated");
                 }
                 else
@@ -64,8 +75,14 @@ namespace RVAProject.ClientApp.ViewModels
                     }, NavigationService.Instance.serviceToken);
                     Logger.Info($"User named {CurrentUser.FirstName} added");
                 }
+                NavigationService.Instance.NavigateTo("dashboard");
             }
-            catch(Exception ex)
+            catch(FaultException fe)
+            {
+                MessageBox.Show(fe.Message);
+                NavigationService.Instance.NavigateTo("dashboard");
+            }
+            catch (Exception ex)
             {
                 Logger.Error($"User add or update error");
             }

@@ -23,6 +23,7 @@ namespace RVAProject.ClientApp.ViewModels
         {
             Title = "Add Author";
             isUpdate = false;
+            CurrentAuthor = new AuthorInfo();
             Submit = new AppAsyncCommand(OnSubmit);
         }
         public AuthorFormViewModel(AuthorInfo authorInfo)
@@ -58,6 +59,7 @@ namespace RVAProject.ClientApp.ViewModels
                     }, NavigationService.Instance.serviceToken);
                     Logger.Info(" Autor added");
                 }
+                NavigationService.Instance.NavigateTo("dashboard");
             }
             catch (Exception ex)
             {

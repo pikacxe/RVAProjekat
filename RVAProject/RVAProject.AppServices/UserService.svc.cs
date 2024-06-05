@@ -31,7 +31,7 @@ namespace RVAProject.AppServices
             {
                 var userRole = principal.FindFirst("user_role").Value;
 
-                if (userRole != "Admin")
+                if (userRole.ToLower() != "admin")
                 {
                     throw new CustomAppException("You have no permission to do this action.");
                 }

@@ -23,6 +23,7 @@ namespace RVAProject.ClientApp.Views
         public BookFormView()
         {
             InitializeComponent();
+            this.DataContext = NavigationService.Instance.CurrentView;
         }
     }
 }
