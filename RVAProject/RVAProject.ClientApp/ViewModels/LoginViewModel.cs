@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using RVAProject.ClientApp.Services.Impl;
 using System;
-using RVAProject.Common;
-using RVAProject.Common.Entities;
 using RVAProject.ClientApp.Helpers;
 
 namespace RVAProject.ClientApp.ViewModels
@@ -30,14 +28,17 @@ namespace RVAProject.ClientApp.ViewModels
                 token = await _service.LoginAsync(new LogInRequest { Username = Username, Password = Password });
                 NavigationService.Instance.serviceToken = token;
                 NavigationService.Instance.NavigateTo("dashboard");
+                Logger.Info(" User successfully loged in");
             }
             catch (FaultException fe)
             {
                 MessageBox.Show($"{fe.Message}");
+                Logger.Error(" Login error"); 
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}");   
+                MessageBox.Show($"{ex.Message}");
+                Logger.Error(" Login error");
             }
         }
 

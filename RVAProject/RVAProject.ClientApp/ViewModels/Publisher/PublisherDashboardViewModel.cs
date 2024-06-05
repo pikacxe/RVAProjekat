@@ -57,13 +57,11 @@ namespace RVAProject.ClientApp.ViewModels
         private void HandleUpdatePublisher()
         {
            NavigationService.Instance.NavigateTo("updatePublisher", selectedPublisher);
-            Logger.Info($" Publisher named: {selectedPublisher.Name} updated");
         }
 
         private void HandleAddPublisher()
         {
            NavigationService.Instance.NavigateTo("addPublisher");
-            Logger.Info(" Publisher added");
         }
         private async Task HandleLoadPublishers()
         {          

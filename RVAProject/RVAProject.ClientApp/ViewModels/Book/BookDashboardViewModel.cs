@@ -63,13 +63,11 @@ namespace RVAProject.ClientApp.ViewModels
         private void HandleUpdateBook()
         {
             NavigationService.Instance.NavigateTo("updateBook", selectedBook);
-            Logger.Info($"Book with title {selectedBook.Title} updated");
         }
 
         private void HandleAddBook()
         {
             NavigationService.Instance.NavigateTo("addBook");
-            Logger.Info($"Book added");
         }
 
         private async Task HandleLoadBooks(IEnumerable<BookInfo> enumerable)

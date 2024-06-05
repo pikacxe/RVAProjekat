@@ -62,13 +62,11 @@ namespace RVAProject.ClientApp.ViewModels
         private void HandleUpdateAuthor()
         {
             NavigationService.Instance.NavigateTo("updateAuthor", selectedAuthor);
-            Logger.Info(" Authors updated");
         }
 
         private void HandleAddAuthor()
         {
             NavigationService.Instance.NavigateTo("addAuthor");
-            Logger.Info(" Authors added");
         }
 
         private async Task HandleLoadAuthors()
