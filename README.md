@@ -24,16 +24,16 @@ Zadate podatke ne menjati:
 - Ako je definisana metoda, treba je implementirati.
 
 ## Najmanje 4 obrasca (Code Patterns)
-- [ ] UML za svaki od obrazaca
+- [X] UML za svaki od obrazaca
 - [X] Singleton (NavigationService)
 - [X] Factory (ViewModelFactory)
 - [X] Observer (INotifyPropertyChanged)
-- [ ] Command (Undo & Redo)
+- [X] Command
 - [X] Extensions (DTOs)
 
 # TODO
 - [X] Prijava korisnika
-- [ ] Odjava korisnika
+- [X] Odjava korisnika
 - [X] Kreiranje inicialnog admina ('admin', 'admin')
   - [X] Admin moze izvrsavati sve akcije
 - [X] Kreairanje korisnika od strane admina (dozvoljeno kreiranje admina)
@@ -41,18 +41,15 @@ Zadate podatke ne menjati:
 - [X] Prikaz svih izdavaca
   - [X] Pomocni prikaz knjiga
   - [X] Pomocni prikaz autora
-- [ ] Pretraga izdavaca
+- [X] Pretraga izdavaca
 - [X] CRUD
   - [X] Izdavaca
   - [X] Knjiga
   - [X] Autora
-- [ ] Dupliranje izdavaca
+- [X] Dupliranje izdavaca
 - [X] Osvezavanje prikaza (na zahtev)
 - [X] Omoguciti rad vise instanci programa (bar 2 korisnika istovremeno)
-- [ ] Detektovanje konfikta (DbUpdateConcurrencyException)
-  - [ ] Odbaci svoje izmene (Reload)
-  - [ ] Odbaci tudje izmene (Overwrite)
-- [ ] Tabela obavestenja, svako obavestenje novi red
+- [X] Tabela obavestenja, svako obavestenje novi red
 
 
 ## Serverska aplikacija (WCF)
