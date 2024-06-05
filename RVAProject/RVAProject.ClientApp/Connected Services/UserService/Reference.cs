@@ -24,24 +24,24 @@ namespace RVAProject.ClientApp.UserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AddUser", ReplyAction="http://tempuri.org/IUserService/AddUserResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IUserService/AddUserCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
-        void AddUser(RVAProject.Common.DTOs.UserDTO.UserRequest addUserData);
+        void AddUser(RVAProject.Common.DTOs.UserDTO.UserRequest addUserData, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AddUser", ReplyAction="http://tempuri.org/IUserService/AddUserResponse")]
-        System.Threading.Tasks.Task AddUserAsync(RVAProject.Common.DTOs.UserDTO.UserRequest addUserData);
+        System.Threading.Tasks.Task AddUserAsync(RVAProject.Common.DTOs.UserDTO.UserRequest addUserData, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUser", ReplyAction="http://tempuri.org/IUserService/UpdateUserResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IUserService/UpdateUserCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
-        void UpdateUser(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData);
+        void UpdateUser(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUser", ReplyAction="http://tempuri.org/IUserService/UpdateUserResponse")]
-        System.Threading.Tasks.Task UpdateUserAsync(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData);
+        System.Threading.Tasks.Task UpdateUserAsync(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserById", ReplyAction="http://tempuri.org/IUserService/GetUserByIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IUserService/GetUserByIdCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
-        RVAProject.Common.DTOs.UserDTO.UserInfo GetUserById(System.Guid id);
+        RVAProject.Common.DTOs.UserDTO.UserInfo GetUserById(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserById", ReplyAction="http://tempuri.org/IUserService/GetUserByIdResponse")]
-        System.Threading.Tasks.Task<RVAProject.Common.DTOs.UserDTO.UserInfo> GetUserByIdAsync(System.Guid id);
+        System.Threading.Tasks.Task<RVAProject.Common.DTOs.UserDTO.UserInfo> GetUserByIdAsync(string token);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -79,28 +79,28 @@ namespace RVAProject.ClientApp.UserService {
             return base.Channel.LogInAsync(logInData);
         }
         
-        public void AddUser(RVAProject.Common.DTOs.UserDTO.UserRequest addUserData) {
-            base.Channel.AddUser(addUserData);
+        public void AddUser(RVAProject.Common.DTOs.UserDTO.UserRequest addUserData, string token) {
+            base.Channel.AddUser(addUserData, token);
         }
         
-        public System.Threading.Tasks.Task AddUserAsync(RVAProject.Common.DTOs.UserDTO.UserRequest addUserData) {
-            return base.Channel.AddUserAsync(addUserData);
+        public System.Threading.Tasks.Task AddUserAsync(RVAProject.Common.DTOs.UserDTO.UserRequest addUserData, string token) {
+            return base.Channel.AddUserAsync(addUserData, token);
         }
         
-        public void UpdateUser(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData) {
-            base.Channel.UpdateUser(updateUserData);
+        public void UpdateUser(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData, string token) {
+            base.Channel.UpdateUser(updateUserData, token);
         }
         
-        public System.Threading.Tasks.Task UpdateUserAsync(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData) {
-            return base.Channel.UpdateUserAsync(updateUserData);
+        public System.Threading.Tasks.Task UpdateUserAsync(RVAProject.Common.DTOs.UserDTO.UpdateUserRequest updateUserData, string token) {
+            return base.Channel.UpdateUserAsync(updateUserData, token);
         }
         
-        public RVAProject.Common.DTOs.UserDTO.UserInfo GetUserById(System.Guid id) {
-            return base.Channel.GetUserById(id);
+        public RVAProject.Common.DTOs.UserDTO.UserInfo GetUserById(string token) {
+            return base.Channel.GetUserById(token);
         }
         
-        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.UserDTO.UserInfo> GetUserByIdAsync(System.Guid id) {
-            return base.Channel.GetUserByIdAsync(id);
+        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.UserDTO.UserInfo> GetUserByIdAsync(string token) {
+            return base.Channel.GetUserByIdAsync(token);
         }
     }
 }

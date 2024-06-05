@@ -3,11 +3,13 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common" />
       <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.BookDTO" />
-      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
-      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:56951/BookService.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IBookService_GetBookById_InputMessage">

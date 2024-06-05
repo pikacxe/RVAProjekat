@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="AuthorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56951/AuthorService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56951/AuthorService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common" />
+      <xsd:import schemaLocation="http://localhost:56951/AuthorService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56951/AuthorService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" />
+      <xsd:import schemaLocation="http://localhost:56951/AuthorService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAuthorService_AddAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAuthor" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_AddAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_AddAuthor_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q1:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_GetAllAuthors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthors" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_GetAllAuthors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuthorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_GetAllAuthors_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q2:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_GetAuthorById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorById" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_GetAuthorById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_GetAuthorById_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q3:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_UpdateAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuthor" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_UpdateAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_UpdateAuthor_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q4:CustomAppException" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_DeleteAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuthor" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_DeleteAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorService_DeleteAuthor_CustomAppExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common" name="detail" element="q5:CustomAppException" />
+  </wsdl:message>
+  <wsdl:portType name="IAuthorService">
+    <wsdl:operation name="AddAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorService/AddAuthor" message="tns:IAuthorService_AddAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorService/AddAuthorResponse" message="tns:IAuthorService_AddAuthor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAuthorService/AddAuthorCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IAuthorService_AddAuthor_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorService/GetAllAuthors" message="tns:IAuthorService_GetAllAuthors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorService/GetAllAuthorsResponse" message="tns:IAuthorService_GetAllAuthors_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAuthorService/GetAllAuthorsCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IAuthorService_GetAllAuthors_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorService/GetAuthorById" message="tns:IAuthorService_GetAuthorById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorService/GetAuthorByIdResponse" message="tns:IAuthorService_GetAuthorById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAuthorService/GetAuthorByIdCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IAuthorService_GetAuthorById_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorService/UpdateAuthor" message="tns:IAuthorService_UpdateAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorService/UpdateAuthorResponse" message="tns:IAuthorService_UpdateAuthor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAuthorService/UpdateAuthorCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IAuthorService_UpdateAuthor_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorService/DeleteAuthor" message="tns:IAuthorService_DeleteAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorService/DeleteAuthorResponse" message="tns:IAuthorService_DeleteAuthor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAuthorService/DeleteAuthorCustomAppExceptionFault" name="CustomAppExceptionFault" message="tns:IAuthorService_DeleteAuthor_CustomAppExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAuthorService" type="tns:IAuthorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddAuthor">
+      <soap:operation soapAction="http://tempuri.org/IAuthorService/AddAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAuthors">
+      <soap:operation soapAction="http://tempuri.org/IAuthorService/GetAllAuthors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorById">
+      <soap:operation soapAction="http://tempuri.org/IAuthorService/GetAuthorById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAuthor">
+      <soap:operation soapAction="http://tempuri.org/IAuthorService/UpdateAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuthor">
+      <soap:operation soapAction="http://tempuri.org/IAuthorService/DeleteAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomAppExceptionFault">
+        <soap:fault use="literal" name="CustomAppExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthorService">
+    <wsdl:port name="BasicHttpBinding_IAuthorService" binding="tns:BasicHttpBinding_IAuthorService">
+      <soap:address location="http://localhost:56951/AuthorService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

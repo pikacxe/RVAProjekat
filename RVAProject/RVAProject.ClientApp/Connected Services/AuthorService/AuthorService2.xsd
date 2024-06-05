@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" />
-  <xs:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:element name="AddPublisher">
+  <xs:import schemaLocation="http://localhost:56951/AuthorService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" />
+  <xs:import schemaLocation="http://localhost:56951/AuthorService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="AddAuthor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="publisherRequest" nillable="true" type="q1:PublisherRequest" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" minOccurs="0" name="authorRequest" nillable="true" type="q1:AuthorRequest" />
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddPublisherResponse">
+  <xs:element name="AddAuthorResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllPublishers">
+  <xs:element name="GetAllAuthors">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllPublishersResponse">
+  <xs:element name="GetAllAuthorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="GetAllPublishersResult" nillable="true" type="q2:ArrayOfPublisherInfo" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" minOccurs="0" name="GetAllAuthorsResult" nillable="true" type="q2:ArrayOfAuthorInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetPublisherById">
+  <xs:element name="GetAuthorById">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q3:guid" />
@@ -37,27 +37,27 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetPublisherByIdResponse">
+  <xs:element name="GetAuthorByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="GetPublisherByIdResult" nillable="true" type="q4:PublisherInfo" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" minOccurs="0" name="GetAuthorByIdResult" nillable="true" type="q4:AuthorInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdatePublisher">
+  <xs:element name="UpdateAuthor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="updatePublisherRequest" nillable="true" type="q5:UpdatePublisherRequest" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.AuthorDTO" minOccurs="0" name="updateAuthorRequest" nillable="true" type="q5:UpdateAuthorRequest" />
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdatePublisherResponse">
+  <xs:element name="UpdateAuthorResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeletePublisher">
+  <xs:element name="DeleteAuthor">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q6:guid" />
@@ -65,7 +65,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeletePublisherResponse">
+  <xs:element name="DeleteAuthorResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

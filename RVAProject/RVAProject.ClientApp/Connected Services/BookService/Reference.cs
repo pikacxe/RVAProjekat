@@ -17,44 +17,44 @@ namespace RVAProject.ClientApp.BookService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/GetBookById", ReplyAction="http://tempuri.org/IBookService/GetBookByIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IBookService/GetBookByIdCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
-        RVAProject.Common.DTOs.BookDTO.BookInfo GetBookById(System.Guid id);
+        RVAProject.Common.DTOs.BookDTO.BookInfo GetBookById(System.Guid id, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/GetBookById", ReplyAction="http://tempuri.org/IBookService/GetBookByIdResponse")]
-        System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo> GetBookByIdAsync(System.Guid id);
+        System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo> GetBookByIdAsync(System.Guid id, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/GetAll", ReplyAction="http://tempuri.org/IBookService/GetAllResponse")]
-        RVAProject.Common.DTOs.BookDTO.BookInfo[] GetAll();
+        RVAProject.Common.DTOs.BookDTO.BookInfo[] GetAll(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/GetAll", ReplyAction="http://tempuri.org/IBookService/GetAllResponse")]
-        System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo[]> GetAllAsync();
+        System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo[]> GetAllAsync(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/GetBookByPartialName", ReplyAction="http://tempuri.org/IBookService/GetBookByPartialNameResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IBookService/GetBookByPartialNameCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
-        RVAProject.Common.DTOs.BookDTO.BookInfo GetBookByPartialName(string partialName);
+        RVAProject.Common.DTOs.BookDTO.BookInfo GetBookByPartialName(string partialName, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/GetBookByPartialName", ReplyAction="http://tempuri.org/IBookService/GetBookByPartialNameResponse")]
-        System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo> GetBookByPartialNameAsync(string partialName);
+        System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo> GetBookByPartialNameAsync(string partialName, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/CreateBook", ReplyAction="http://tempuri.org/IBookService/CreateBookResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IBookService/CreateBookCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
-        void CreateBook(RVAProject.Common.DTOs.BookDTO.CreateBookRequest createBookRequest);
+        void CreateBook(RVAProject.Common.DTOs.BookDTO.CreateBookRequest createBookRequest, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/CreateBook", ReplyAction="http://tempuri.org/IBookService/CreateBookResponse")]
-        System.Threading.Tasks.Task CreateBookAsync(RVAProject.Common.DTOs.BookDTO.CreateBookRequest createBookRequest);
+        System.Threading.Tasks.Task CreateBookAsync(RVAProject.Common.DTOs.BookDTO.CreateBookRequest createBookRequest, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/DeleteBook", ReplyAction="http://tempuri.org/IBookService/DeleteBookResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IBookService/DeleteBookCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
-        void DeleteBook(System.Guid id);
+        void DeleteBook(System.Guid id, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/DeleteBook", ReplyAction="http://tempuri.org/IBookService/DeleteBookResponse")]
-        System.Threading.Tasks.Task DeleteBookAsync(System.Guid id);
+        System.Threading.Tasks.Task DeleteBookAsync(System.Guid id, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/UpdateBook", ReplyAction="http://tempuri.org/IBookService/UpdateBookResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(RVAProject.Common.CustomAppException), Action="http://tempuri.org/IBookService/UpdateBookCustomAppExceptionFault", Name="CustomAppException", Namespace="http://schemas.datacontract.org/2004/07/RVAProject.Common")]
-        void UpdateBook(RVAProject.Common.DTOs.BookDTO.UpdateBookRequest updateBookRequest);
+        void UpdateBook(RVAProject.Common.DTOs.BookDTO.UpdateBookRequest updateBookRequest, string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookService/UpdateBook", ReplyAction="http://tempuri.org/IBookService/UpdateBookResponse")]
-        System.Threading.Tasks.Task UpdateBookAsync(RVAProject.Common.DTOs.BookDTO.UpdateBookRequest updateBookRequest);
+        System.Threading.Tasks.Task UpdateBookAsync(RVAProject.Common.DTOs.BookDTO.UpdateBookRequest updateBookRequest, string token);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -84,52 +84,52 @@ namespace RVAProject.ClientApp.BookService {
                 base(binding, remoteAddress) {
         }
         
-        public RVAProject.Common.DTOs.BookDTO.BookInfo GetBookById(System.Guid id) {
-            return base.Channel.GetBookById(id);
+        public RVAProject.Common.DTOs.BookDTO.BookInfo GetBookById(System.Guid id, string token) {
+            return base.Channel.GetBookById(id, token);
         }
         
-        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo> GetBookByIdAsync(System.Guid id) {
-            return base.Channel.GetBookByIdAsync(id);
+        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo> GetBookByIdAsync(System.Guid id, string token) {
+            return base.Channel.GetBookByIdAsync(id, token);
         }
         
-        public RVAProject.Common.DTOs.BookDTO.BookInfo[] GetAll() {
-            return base.Channel.GetAll();
+        public RVAProject.Common.DTOs.BookDTO.BookInfo[] GetAll(string token) {
+            return base.Channel.GetAll(token);
         }
         
-        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo[]> GetAllAsync() {
-            return base.Channel.GetAllAsync();
+        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo[]> GetAllAsync(string token) {
+            return base.Channel.GetAllAsync(token);
         }
         
-        public RVAProject.Common.DTOs.BookDTO.BookInfo GetBookByPartialName(string partialName) {
-            return base.Channel.GetBookByPartialName(partialName);
+        public RVAProject.Common.DTOs.BookDTO.BookInfo GetBookByPartialName(string partialName, string token) {
+            return base.Channel.GetBookByPartialName(partialName, token);
         }
         
-        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo> GetBookByPartialNameAsync(string partialName) {
-            return base.Channel.GetBookByPartialNameAsync(partialName);
+        public System.Threading.Tasks.Task<RVAProject.Common.DTOs.BookDTO.BookInfo> GetBookByPartialNameAsync(string partialName, string token) {
+            return base.Channel.GetBookByPartialNameAsync(partialName, token);
         }
         
-        public void CreateBook(RVAProject.Common.DTOs.BookDTO.CreateBookRequest createBookRequest) {
-            base.Channel.CreateBook(createBookRequest);
+        public void CreateBook(RVAProject.Common.DTOs.BookDTO.CreateBookRequest createBookRequest, string token) {
+            base.Channel.CreateBook(createBookRequest, token);
         }
         
-        public System.Threading.Tasks.Task CreateBookAsync(RVAProject.Common.DTOs.BookDTO.CreateBookRequest createBookRequest) {
-            return base.Channel.CreateBookAsync(createBookRequest);
+        public System.Threading.Tasks.Task CreateBookAsync(RVAProject.Common.DTOs.BookDTO.CreateBookRequest createBookRequest, string token) {
+            return base.Channel.CreateBookAsync(createBookRequest, token);
         }
         
-        public void DeleteBook(System.Guid id) {
-            base.Channel.DeleteBook(id);
+        public void DeleteBook(System.Guid id, string token) {
+            base.Channel.DeleteBook(id, token);
         }
         
-        public System.Threading.Tasks.Task DeleteBookAsync(System.Guid id) {
-            return base.Channel.DeleteBookAsync(id);
+        public System.Threading.Tasks.Task DeleteBookAsync(System.Guid id, string token) {
+            return base.Channel.DeleteBookAsync(id, token);
         }
         
-        public void UpdateBook(RVAProject.Common.DTOs.BookDTO.UpdateBookRequest updateBookRequest) {
-            base.Channel.UpdateBook(updateBookRequest);
+        public void UpdateBook(RVAProject.Common.DTOs.BookDTO.UpdateBookRequest updateBookRequest, string token) {
+            base.Channel.UpdateBook(updateBookRequest, token);
         }
         
-        public System.Threading.Tasks.Task UpdateBookAsync(RVAProject.Common.DTOs.BookDTO.UpdateBookRequest updateBookRequest) {
-            return base.Channel.UpdateBookAsync(updateBookRequest);
+        public System.Threading.Tasks.Task UpdateBookAsync(RVAProject.Common.DTOs.BookDTO.UpdateBookRequest updateBookRequest, string token) {
+            return base.Channel.UpdateBookAsync(updateBookRequest, token);
         }
     }
 }

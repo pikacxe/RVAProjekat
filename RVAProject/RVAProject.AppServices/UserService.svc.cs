@@ -4,6 +4,7 @@ using RVAProject.AppServices.Helpers;
 using RVAProject.Common;
 using RVAProject.Common.DTOs.UserDTO;
 using RVAProject.Common.Entities;
+using RVAProject.Common.Helpers;
 using RVAProject.Common.Repositories;
 using RVAProject.Common.Repositories.Impl;
 using System;
@@ -24,58 +25,86 @@ namespace RVAProject.AppServices
             _userRepository = new UserRepository(new LibraryDbContext());
         }
 
-        public async Task AddUser(UserRequest userRequest)
+        public async Task AddUser(UserRequest userRequest, string token)
         {
-
-            var existingUser = await _userRepository.GetUserByUsername(userRequest.Username);
-
-            if (existingUser != null)
+            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
             {
-                Logger.Error($" User with user name {userRequest.Username} already exists");
-                throw new CustomAppException("User already exists");
+                var userRole = principal.FindFirst("user_role").Value;
+
+                if (userRole != "Admin")
+                {
+                    throw new CustomAppException("You have no permission to do this action.");
+                }
+
+                var existingUser = await _userRepository.GetUserByUsername(userRequest.Username);
+
+                if (existingUser != null)
+                {
+                    Logger.Error($" User with user name {userRequest.Username} already exists");
+                    throw new CustomAppException("User already exists");
+                }
+
+                var user = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Username = userRequest.Username,
+                    Password = userRequest.Password,
+                    FirstName = userRequest.FirstName,
+                    LastName = userRequest.LastName,
+                    isAdmin = userRequest.isAdmin
+                };
+
+                await _userRepository.AddUser(user);
+                Logger.Info($" User added: Username: {user.Username}, Firstname: {user.FirstName}, Lastname: {user.LastName}");
             }
-
-            var user = new User
+            else
             {
-                Id = Guid.NewGuid(),
-                Username = userRequest.Username,
-                Password = userRequest.Password,
-                FirstName = userRequest.FirstName,
-                LastName = userRequest.LastName,
-                isAdmin = userRequest.isAdmin
-            };
-
-            await _userRepository.AddUser(user);
-            Logger.Info($" User added: Username: {user.Username}, Firstname: {user.FirstName}, Lastname: {user.LastName}");
+                throw new CustomAppException("Your account does not exist in our base.");
+            }
         }
-        public async Task<UserInfo> GetUserById(Guid id)
+        public async Task<UserInfo> GetUserById(string token)
         {
-            var existingUser = await _userRepository.GetUserById(id);
-
-            if (existingUser == null)
+            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
             {
-                Logger.Error($" User with id {id} does not exists");
-                throw new CustomAppException("User does not exist");
+                var id = principal.FindFirst("user_id").Value;
+                var existingUser = await _userRepository.GetUserById(Guid.Parse(id));
+
+                if (existingUser == null)
+                {
+                    Logger.Error($" User with id {id} does not exists");
+                    throw new CustomAppException("User does not exist");
+                }
+                Logger.Info($" User get by id mehod with id: {id} are successfully executed");
+                return existingUser.AsUserInfo();
             }
-            Logger.Info($" User get by id mehod with id: {id} are successfully executed");
-            return existingUser.AsUserInfo();
+            else
+            {
+                throw new CustomAppException("Your account does not exist in our base.");
+            }
         }
 
-        public async Task UpdateUser(UpdateUserRequest updateUserRequest)
+        public async Task UpdateUser(UpdateUserRequest updateUserRequest, string token)
         {
-            var existingUser = await _userRepository.GetUserById(updateUserRequest.Id);
-
-            if (existingUser == null)
+            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
             {
-                Logger.Error($" User does not exist");
-                throw new CustomAppException("User does not exist");
+                var existingUser = await _userRepository.GetUserById(updateUserRequest.Id);
+
+                if (existingUser == null)
+                {
+                    Logger.Error($" User does not exist");
+                    throw new CustomAppException("User does not exist");
+                }
+
+                existingUser.FirstName = updateUserRequest.FirstName;
+                existingUser.LastName = updateUserRequest.LastName;
+
+                await _userRepository.SaveChangesUser();
+                Logger.Info($" User updated: Username: {existingUser.Username}, Firstname: {existingUser.FirstName}, Lastname: {existingUser.LastName}");
             }
-
-            existingUser.FirstName = updateUserRequest.FirstName;
-            existingUser.LastName = updateUserRequest.LastName;
-
-            await _userRepository.SaveChangesUser();
-            Logger.Info($" User updated: Username: {existingUser.Username}, Firstname: {existingUser.FirstName}, Lastname: {existingUser.LastName}");
+            else
+            {
+                throw new CustomAppException("Your account does not exist in our base.");
+            }
         }
 
         public async Task<string> LogIn(LogInRequest logInRequest)
