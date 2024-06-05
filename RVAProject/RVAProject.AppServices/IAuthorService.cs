@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RVAProject.Common;
 using RVAProject.Common.DTOs.AuthorDTO;
-using RVAProject.Common.DTOs.PublisherDTO;
-
-using RVAProject.Common;
+using System;
+using System.Collections.Generic;
+using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace RVAProject.AppServices
 {
@@ -19,22 +14,22 @@ namespace RVAProject.AppServices
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task AddAuthor(AuthorRequest authorRequest);
+        Task AddAuthor(AuthorRequest authorRequest, string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task<IEnumerable<AuthorInfo>> GetAllAuthors();
+        Task<IEnumerable<AuthorInfo>> GetAllAuthors(string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task<AuthorInfo> GetAuthorById(Guid id);
+        Task<AuthorInfo> GetAuthorById(Guid id, string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task UpdateAuthor(UpdateAuthorRequest updateAuthorRequest);
+        Task UpdateAuthor(UpdateAuthorRequest updateAuthorRequest, string token);
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
-        Task DeleteAuthor(Guid id);
+        Task DeleteAuthor(Guid id, string token);
     }
 }

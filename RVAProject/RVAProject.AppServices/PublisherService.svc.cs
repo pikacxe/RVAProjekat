@@ -2,11 +2,12 @@
 using RVAProject.Common;
 using RVAProject.Common.DTOs.PublisherDTO;
 using RVAProject.Common.Entities;
+using RVAProject.Common.Helpers;
 using RVAProject.Common.Repositories;
 using RVAProject.Common.Repositories.Impl;
 using System;
 using System.Collections.Generic;
-using System.Security.Policy;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 using Publisher = RVAProject.Common.Entities.Publisher;
@@ -22,70 +23,105 @@ namespace RVAProject.AppServices
         {
             _publisherRepository = new PublisherRepository(new LibraryDbContext());
         }
-        public async Task AddPublisher(PublisherRequest publisherRequest)
+        public async Task AddPublisher(PublisherRequest publisherRequest, string token)
         {
-            var publisher = new Publisher
+            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
             {
-                Id = Guid.NewGuid(),
-                Name = publisherRequest.Name,
-                Address = publisherRequest.Address,
-                Email = publisherRequest.Email,
-                Books = new List<Book>()
-            };
-            await _publisherRepository.AddPublisher(publisher);
-            Logger.Info($" Publisher added: Email: {publisher.Email}, Name: {publisher.Name}, Addres : {publisher.Address}");
-        }
-
-        public async Task<IEnumerable<PublisherInfo>> GetAllPublishers()
-        {
-            var publishers = await _publisherRepository.GetAllPublishers();
-            Logger.Info("Publishers get method are successfully executed");
-            return publishers.AsPublisherInfoList();
-        }
-
-        public async Task<PublisherInfo> GetPublisherById(Guid id)
-        {
-            var existingPublisher = await _publisherRepository.GetPublisherById(id);
-
-            if (existingPublisher == null)
-            {
-                Logger.Error($" Publisher with id: {id} does not exist");
-                throw new CustomAppException("Publisher does not exist");
+                var publisher = new Publisher
+                {
+                    Id = Guid.NewGuid(),
+                    Name = publisherRequest.Name,
+                    Address = publisherRequest.Address,
+                    Email = publisherRequest.Email,
+                    Books = new List<Book>()
+                };
+                await _publisherRepository.AddPublisher(publisher);
+                Logger.Info($" Publisher added: Email: {publisher.Email}, Name: {publisher.Name}, Addres : {publisher.Address}");
             }
-
-            Logger.Info($" Publisher with id: {id} is deleted");
-            return existingPublisher.AsPublisherInfo();
+            else
+            {
+                throw new CustomAppException("Your account does not exist in our base.");
+            }
         }
 
-        public async Task UpdatePublisher(UpdatePublisherRequest updatePublisherRequest)
+        public async Task<IEnumerable<PublisherInfo>> GetAllPublishers(string token)
         {
-            var existingPublisher = await _publisherRepository.GetPublisherById(updatePublisherRequest.Id);
-
-            if (existingPublisher == null)
+            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
             {
-                Logger.Error("Publisher does not exist");
-                throw new CustomAppException("Publisher does not exist");
+                var publishers = await _publisherRepository.GetAllPublishers();
+                Logger.Info("Publishers get method are successfully executed");
+                return publishers.AsPublisherInfoList();
             }
-
-            existingPublisher.Name = updatePublisherRequest.Name;
-            existingPublisher.Email = updatePublisherRequest.Email;
-            existingPublisher.Address = updatePublisherRequest.Address;
-
-            await _publisherRepository.SaveChangesPublisher();
-            Logger.Info($" Publisher updated: Email: {existingPublisher.Email}, Name: {existingPublisher.Name}, Addres : {existingPublisher.Address}");
+            else
+            {
+                throw new CustomAppException("Your account does not exist in our base.");
+            }
         }
-        public async Task DeletePublisher(Guid id)
+
+        public async Task<PublisherInfo> GetPublisherById(Guid id, string token)
         {
-            var existingPublisher = await _publisherRepository.GetPublisherById(id);
-
-            if (existingPublisher == null)
+            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
             {
-                Logger.Error($" Publisher with id: {id} does not exist");
-                throw new CustomAppException("Publisher does not exist");
-            }
+                var existingPublisher = await _publisherRepository.GetPublisherById(id);
 
-            await _publisherRepository.DeletePublisher(existingPublisher);
-            Logger.Info($" Publisher with id: {id} is deleted");
+                if (existingPublisher == null)
+                {
+                    Logger.Error($" Publisher with id: {id} does not exist");
+                    throw new CustomAppException("Publisher does not exist");
+                }
+
+                Logger.Info($" Publisher with id: {id} is deleted");
+                return existingPublisher.AsPublisherInfo();
+            }
+            else
+            {
+                throw new CustomAppException("Your account does not exist in our base.");
+            }
+        }
+
+        public async Task UpdatePublisher(UpdatePublisherRequest updatePublisherRequest, string token)
+        {
+            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
+            {
+                var existingPublisher = await _publisherRepository.GetPublisherById(updatePublisherRequest.Id);
+
+                if (existingPublisher == null)
+                {
+                    Logger.Error("Publisher does not exist");
+                    throw new CustomAppException("Publisher does not exist");
+                }
+
+                existingPublisher.Name = updatePublisherRequest.Name;
+                existingPublisher.Email = updatePublisherRequest.Email;
+                existingPublisher.Address = updatePublisherRequest.Address;
+
+                await _publisherRepository.SaveChangesPublisher();
+                Logger.Info($" Publisher updated: Email: {existingPublisher.Email}, Name: {existingPublisher.Name}, Addres : {existingPublisher.Address}");
+            }
+            else
+            {
+                throw new CustomAppException("Your account does not exist in our base.");
+            }
+        }
+        public async Task DeletePublisher(Guid id, string token)
+        {
+            if (TokenHelper.ValidateToken(token, out ClaimsPrincipal principal))
+            {
+                var existingPublisher = await _publisherRepository.GetPublisherById(id);
+
+                if (existingPublisher == null)
+                {
+                    Logger.Error($" Publisher with id: {id} does not exist");
+                    throw new CustomAppException("Publisher does not exist");
+                }
+
+                await _publisherRepository.DeletePublisher(existingPublisher);
+                Logger.Info($" Publisher with id: {id} is deleted");
+            }
+            else
+            {
+                throw new CustomAppException("Your account does not exist in our base.");
+            }
         }
     }
 }

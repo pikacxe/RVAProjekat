@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RVAProject.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RVAProject.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:56951/PublisherService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://localhost:56951/AuthorService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:complexType name="CustomAppException">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System" base="q1:Exception" />
