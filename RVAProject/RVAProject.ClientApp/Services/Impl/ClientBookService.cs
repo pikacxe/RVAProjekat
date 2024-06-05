@@ -14,29 +14,29 @@ namespace RVAProject.ClientApp.Services.Impl
         {
             _client = new BookServiceClient();
         }
-        public async Task CreateBookAsync(CreateBookRequest request)
+        public async Task CreateBookAsync(CreateBookRequest request, string token)
         {
-            await _client.CreateBookAsync(request);
+            await _client.CreateBookAsync(request, token);
         }
-        public async Task DeleteBookAsync(Guid id)
+        public async Task DeleteBookAsync(Guid id, string token)
         {
-            await _client.DeleteBookAsync(id);
+            await _client.DeleteBookAsync(id, token);
         }
-        public async Task<IEnumerable<BookInfo>> GetAllBooksAsync()
+        public async Task<IEnumerable<BookInfo>> GetAllBooksAsync(string token)
         {
-            return await _client.GetAllAsync();
+            return await _client.GetAllAsync(token);
         }
-        public async Task<BookInfo> GetBookAsync(Guid id)
+        public async Task<BookInfo> GetBookAsync(Guid id,string token)
         {
-            return await _client.GetBookByIdAsync(id);
+            return await _client.GetBookByIdAsync(id, token);
         }
-        public async Task<IEnumerable<BookInfo>> GetBookForPublisherAsync(Guid publisherId)
+        public async Task<IEnumerable<BookInfo>> GetBookForPublisherAsync(Guid publisherId, string token)
         {
-            return await _client.GetAllAsync();
+            return await _client.GetAllAsync(token);
         }
-        public async Task UpdateBookAsync(UpdateBookRequest request)
+        public async Task UpdateBookAsync(UpdateBookRequest request, string token)
         {
-            await _client.UpdateBookAsync(request);
+            await _client.UpdateBookAsync(request, token);
         }
     }
 }

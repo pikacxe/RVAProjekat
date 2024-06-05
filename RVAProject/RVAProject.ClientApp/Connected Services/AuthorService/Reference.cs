@@ -77,6 +77,7 @@ namespace RVAProject.ClientApp.AuthorService {
         public AuthorServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
+        
         public void AddAuthor(RVAProject.Common.DTOs.AuthorDTO.AuthorRequest authorRequest, string token) {
             base.Channel.AddAuthor(authorRequest, token);
         }

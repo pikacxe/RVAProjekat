@@ -27,6 +27,7 @@ namespace RVAProject.ClientApp.ViewModels
             try
             {
                 token = await _service.LoginAsync(new LogInRequest { Username = Username, Password = Password });
+                NavigationService.Instance.serviceToken = token;
                 NavigationService.Instance.NavigateTo("dashboard");
             }
             catch (FaultException fe)
@@ -53,7 +54,5 @@ namespace RVAProject.ClientApp.ViewModels
         }
 
         public AppAsyncCommand LoginCommand { get; private set; }
-        public AppCommand ToRegisterView { get; private set; }
-
     }
 }

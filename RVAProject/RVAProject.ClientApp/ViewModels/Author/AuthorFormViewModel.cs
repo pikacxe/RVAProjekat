@@ -44,7 +44,7 @@ namespace RVAProject.ClientApp.ViewModels
                         FullName = CurrentAuthor.FullName,
                         PenName = CurrentAuthor.PenName,
                         HasNobelPrize = CurrentAuthor.HasNobelPrize
-                    });
+                    }, NavigationService.Instance.serviceToken);
                 }
                 else
                 {
@@ -53,7 +53,7 @@ namespace RVAProject.ClientApp.ViewModels
                         FullName = CurrentAuthor.FullName,
                         PenName = CurrentAuthor.PenName,
                         HasNobelPrize = CurrentAuthor.HasNobelPrize
-                    });
+                    }, NavigationService.Instance.serviceToken);
                 }
             }
             catch (Exception ex)

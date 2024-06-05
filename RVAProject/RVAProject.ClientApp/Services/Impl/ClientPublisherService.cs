@@ -17,29 +17,29 @@ namespace RVAProject.ClientApp.Services.Impl
             _client = new PublisherServiceClient();
         }
 
-        public async Task CreatePublisherAsync(PublisherRequest request)
+        public async Task CreatePublisherAsync(PublisherRequest request, string token)
         {
-            await _client.AddPublisherAsync(request);
+            await _client.AddPublisherAsync(request, token);
         }
 
-        public async Task DeletePublisherAsync(Guid id)
+        public async Task DeletePublisherAsync(Guid id, string token)
         {
-           await _client.DeletePublisherAsync(id);
+           await _client.DeletePublisherAsync(id, token);
         }
 
-        public async Task<IEnumerable<PublisherInfo>> GetAllPublishersAsync()
+        public async Task<IEnumerable<PublisherInfo>> GetAllPublishersAsync(string token)
         {
-            return await _client.GetAllPublishersAsync();
+            return await _client.GetAllPublishersAsync(token);
         }
 
-        public async Task<PublisherInfo> GetPublisherAsync(Guid id)
+        public async Task<PublisherInfo> GetPublisherAsync(Guid id, string token)
         {
-            return await _client.GetPublisherByIdAsync(id);
+            return await _client.GetPublisherByIdAsync(id, token);
         }
 
-        public async Task UpdatePublisherAsync(UpdatePublisherRequest request)
+        public async Task UpdatePublisherAsync(UpdatePublisherRequest request, string token)
         {
-            await _client.UpdatePublisherAsync(request);
+            await _client.UpdatePublisherAsync(request, token);
         }
     }
 }

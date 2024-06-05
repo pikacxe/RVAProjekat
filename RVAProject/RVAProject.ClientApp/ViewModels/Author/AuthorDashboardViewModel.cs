@@ -46,7 +46,7 @@ namespace RVAProject.ClientApp.ViewModels
         {
             try
             {
-                await _service.DeleteAuthorAsync(selectedAuthor.Id);
+                await _service.DeleteAuthorAsync(selectedAuthor.Id, NavigationService.Instance.serviceToken);
                 Authors.Remove(selectedAuthor);
                 selectedAuthor = default;
             }
@@ -68,7 +68,7 @@ namespace RVAProject.ClientApp.ViewModels
 
         private async Task HandleLoadAuthors()
         {
-            var authors = await _service.GetAllAuthorsAsync();
+            var authors = await _service.GetAllAuthorsAsync(NavigationService.Instance.serviceToken);
             authorsCache = authors.ToList();
             Authors.Clear();
             foreach (var author in authors)

@@ -48,7 +48,7 @@ namespace RVAProject.ClientApp.ViewModels
                         Name = CurrentPublisher.Name,
                         Address = CurrentPublisher.Address,
                         Email = currentPublisher.Email,
-                    });
+                    }, NavigationService.Instance.serviceToken);
                 }
                 else
                 {
@@ -57,7 +57,7 @@ namespace RVAProject.ClientApp.ViewModels
                         Name = CurrentPublisher.Name,
                         Address = CurrentPublisher.Address,
                         Email = currentPublisher.Email,
-                    });
+                    }, NavigationService.Instance.serviceToken);
                 }
             }
             catch (Exception ex)

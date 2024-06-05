@@ -42,7 +42,7 @@ namespace RVAProject.ClientApp.ViewModels
         {
             try
             {
-                await _service.DeletePublisherAsync(selectedPublisher.Id);
+                await _service.DeletePublisherAsync(selectedPublisher.Id, NavigationService.Instance.serviceToken);
                 Publishers.Remove(selectedPublisher);
                 selectedPublisher = default;
             }
@@ -65,7 +65,7 @@ namespace RVAProject.ClientApp.ViewModels
         {          
             try
             {
-                var publishers = await _service.GetAllPublishersAsync();
+                var publishers = await _service.GetAllPublishersAsync(NavigationService.Instance.serviceToken);
                 Publishers.Clear();
                 foreach (var publisher in publishers)
                 {

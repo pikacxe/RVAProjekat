@@ -47,7 +47,7 @@ namespace RVAProject.ClientApp.ViewModels
         {
             try
             {
-                await _service.DeleteBookAsync(selectedBook.Id);
+                await _service.DeleteBookAsync(selectedBook.Id, NavigationService.Instance.serviceToken);
                 Books.Remove(selectedBook);
                 selectedBook = default;
             }
@@ -69,7 +69,7 @@ namespace RVAProject.ClientApp.ViewModels
 
         private async Task HandleLoadBooks(IEnumerable<BookInfo> enumerable)
         {
-            var books = await _service.GetAllBooksAsync();
+            var books = await _service.GetAllBooksAsync(NavigationService.Instance.serviceToken);
             Books.Clear();
             foreach (var book in books)
             {

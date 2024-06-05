@@ -27,6 +27,8 @@ namespace RVAProject.ClientApp
             }
         }
 
+        public string serviceToken { get; set; }
+
         public Visibility BackButtonVisibility => NavigationService.Instance.CurrentView.GetType() == typeof(LoginViewModel) ? Visibility.Hidden : Visibility.Visible;
 
         private BindableBase previousView;
