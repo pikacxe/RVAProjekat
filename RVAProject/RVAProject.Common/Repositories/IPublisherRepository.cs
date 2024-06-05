@@ -11,6 +11,7 @@ namespace RVAProject.Common.Repositories
         Task SaveChangesPublisher();
         Task DeletePublisher(Publisher publisher);
         Task<Publisher> GetPublisherById(Guid id);
+        Task<Publisher> GetPublisherByPartialName(string name);
         Task<IEnumerable<Publisher>> GetAllPublishers();
     }
 }

@@ -44,10 +44,25 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetPublisherByPartialName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPublisherByPartialNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="GetPublisherByPartialNameResult" nillable="true" type="q5:PublisherInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdatePublisher">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="updatePublisherRequest" nillable="true" type="q5:UpdatePublisherRequest" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/RVAProject.Common.DTOs.PublisherDTO" minOccurs="0" name="updatePublisherRequest" nillable="true" type="q6:UpdatePublisherRequest" />
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -60,7 +75,7 @@
   <xs:element name="DeletePublisher">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q6:guid" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q7:guid" />
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

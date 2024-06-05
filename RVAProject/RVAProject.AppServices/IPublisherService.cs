@@ -25,6 +25,10 @@ namespace RVAProject.AppServices
 
         [OperationContract]
         [FaultContract(typeof(CustomAppException))]
+        Task<PublisherInfo> GetPublisherByPartialName(string filter, string token);
+
+        [OperationContract]
+        [FaultContract(typeof(CustomAppException))]
         Task UpdatePublisher(UpdatePublisherRequest updatePublisherRequest, string token);
 
         [OperationContract]
