@@ -28,6 +28,7 @@ namespace RVAProject.ClientApp.ViewModels
             get => selectedBook;
             set => SetProperty(ref selectedBook, value);
         }
+        public bool isSelectedBook => SelectedBook != null;
 
         public AppAsyncCommand<IEnumerable<BookInfo>> LoadBooks { get; private set; }
         public AppCommand AddBook { get; private set; }
