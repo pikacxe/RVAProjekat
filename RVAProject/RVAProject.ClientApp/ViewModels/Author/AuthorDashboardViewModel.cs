@@ -5,7 +5,6 @@ using RVAProject.Common.DTOs.AuthorDTO;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace RVAProject.ClientApp.ViewModels
@@ -13,7 +12,6 @@ namespace RVAProject.ClientApp.ViewModels
     public class AuthorDashboardViewModel : BindableBase
     {
         public readonly IClientAuthorService _service;
-        private List<AuthorInfo> authorsCache = new List<AuthorInfo>();
         public ObservableCollection<AuthorInfo> authors;
         public ObservableCollection<AuthorInfo> Authors
         {
@@ -27,6 +25,7 @@ namespace RVAProject.ClientApp.ViewModels
             get => selectedAuthor;
             set => SetProperty(ref selectedAuthor, value);
         }
+        public bool isSelectedAuthor => SelectedAuthor != null;
         public AppAsyncCommand LoadAuthors { get; private set; }
         public AppCommand AddAuthor { get; private set; }
         public AppCommand UpdateAuthor { get; private set; }
@@ -69,7 +68,6 @@ namespace RVAProject.ClientApp.ViewModels
         private async Task HandleLoadAuthors()
         {
             var authors = await _service.GetAllAuthorsAsync(NavigationService.Instance.serviceToken);
-            authorsCache = authors.ToList();
             Authors.Clear();
             foreach (var author in authors)
             {
