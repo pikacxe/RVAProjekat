@@ -1,4 +1,5 @@
 ﻿using RVAProject.ClientApp.BookService;
+using RVAProject.ClientApp.Helpers;
 using RVAProject.ClientApp.Modules;
 using RVAProject.Common.DTOs.BookDTO;
 using System;
@@ -61,6 +62,7 @@ namespace RVAProject.ClientApp.ViewModels
                         PublisherId = CurrentBook.Publisher.Id,
                         
                     }, NavigationService.Instance.serviceToken);
+                    Logger.Info(" Book updated");
                 }
                 else
                 {
@@ -71,11 +73,12 @@ namespace RVAProject.ClientApp.ViewModels
                         Description = CurrentBook.Description,
                         PublisherId = PublisherId
                     }, NavigationService.Instance.serviceToken);
+                    Logger.Info(" Book created");
                 }
             }
             catch (Exception e)
             {
-                // TODO log error
+                Logger.Error(" Book update or create error");
             }
         }
     }

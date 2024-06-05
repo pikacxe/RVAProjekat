@@ -1,4 +1,5 @@
-﻿using RVAProject.ClientApp.Modules;
+﻿using RVAProject.ClientApp.Helpers;
+using RVAProject.ClientApp.Modules;
 using RVAProject.ClientApp.Services;
 using RVAProject.ClientApp.Services.Impl;
 using RVAProject.Common.DTOs.PublisherDTO;
@@ -44,11 +45,12 @@ namespace RVAProject.ClientApp.ViewModels
             {
                 await _service.DeletePublisherAsync(selectedPublisher.Id, NavigationService.Instance.serviceToken);
                 Publishers.Remove(selectedPublisher);
+                Logger.Info($" Publisher named :{selectedPublisher.Name} deleted");
                 selectedPublisher = default;
             }
             catch (Exception e)
             {
-                //TODO log error
+                Logger.Info($" Publisher delet error");
             }
         }
 
@@ -71,10 +73,11 @@ namespace RVAProject.ClientApp.ViewModels
                 {
                     Publishers.Add(publisher);
                 }
+                Logger.Info(" Publishers loaded");
             }
             catch (Exception e)
             {
-                //TODO log error
+                Logger.Error(" Publishers load error");
             }
         }
 

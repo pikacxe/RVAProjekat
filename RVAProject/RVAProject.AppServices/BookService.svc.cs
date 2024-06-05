@@ -47,7 +47,7 @@ namespace RVAProject.AppServices
                 }
                 catch (Exception ex)
                 {
-                    // TODO log exception
+                    Logger.Error(" Server error");
                     throw new CustomAppException("Server error");
                 }
             }
