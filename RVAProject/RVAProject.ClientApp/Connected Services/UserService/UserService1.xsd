@@ -29,7 +29,10 @@
   <xs:complexType name="UserInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isAdmin" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />

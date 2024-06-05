@@ -54,7 +54,7 @@
             </Grid.RowDefinitions>
 
 
-            <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Height="40" Content="R"/>
+            <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Height="40" Content="R" Command="{Binding LoadAuthors}"/>
             <Button Grid.Row="3" Content="Add Instance" FontSize="20"/>
             <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True"/>
             <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True"/>
