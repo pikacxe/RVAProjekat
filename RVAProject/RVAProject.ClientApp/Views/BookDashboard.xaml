@@ -24,17 +24,16 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Book Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-            <TextBox Grid.Row="1" Margin="10" Width="150" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="2">
-                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Books}" AutoGenerateColumns="False">
+                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Books}" AutoGenerateColumns="False" SelectedValue="{Binding SelectedBook}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Width="*">
+                        <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Id}">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Title" Width="*">
+                        <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Description" Width="*">
+                        <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Publisher" Width="*">
+                        <DataGridTextColumn Header="Publisher" Width="*" Binding="{Binding Publisher}">
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
@@ -55,9 +54,9 @@
 
 
             <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Height="40" Content="R" Command="{Binding LoadBooks}"/>
-            <Button Grid.Row="3" Content="Add Instance" FontSize="20"/>
-            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True"/>
-            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True"/>
+            <Button Grid.Row="3" Content="Add Instance" FontSize="20" Command="{Binding AddBook}"/>
+            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True" Command="{Binding UpdateBook}"/>
+            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True" Command="{Binding DeleteBook}"/>
 
         </Grid>
     </Grid>

@@ -24,17 +24,16 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Author Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-            <TextBox Grid.Row="1" Margin="10" Width="150" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="2">
-                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Authors}" AutoGenerateColumns="False">
+                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Authors}" AutoGenerateColumns="False" SelectedValue="{Binding SelectedAuthor}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Width="*">
+                        <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Id}">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Full Name" Width="*">
+                        <DataGridTextColumn Header="FullName" Width="*" Binding="{Binding FullName}">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Pen Name" Width="*">
+                        <DataGridTextColumn Header="PenName" Width="*" Binding="{Binding PenName}">
                         </DataGridTextColumn>
-                        <DataGridCheckBoxColumn Header="Has Nobel Prize" Width="*">
+                        <DataGridCheckBoxColumn Header="HasNobelPrize" Width="*" Binding="{Binding HasNobelPrize}">
                         </DataGridCheckBoxColumn>
                     </DataGrid.Columns>
                 </DataGrid>
@@ -55,9 +54,9 @@
 
 
             <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Height="40" Content="R" Command="{Binding LoadAuthors}"/>
-            <Button Grid.Row="3" Content="Add Instance" FontSize="20"/>
-            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True"/>
-            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True"/>
+            <Button Grid.Row="3" Content="Add Instance" FontSize="20" Command="{Binding AddAuthor}"/>
+            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True" Command="{Binding UpdateAuthor}"/>
+            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True" Command="{Binding DeleteAuthor}"/>
 
         </Grid>
     </Grid>

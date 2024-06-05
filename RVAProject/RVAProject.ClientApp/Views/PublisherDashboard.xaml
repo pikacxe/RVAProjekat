@@ -26,15 +26,15 @@
             <TextBlock Text="Publisher Dashboard" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
             <TextBox Grid.Row="1" Margin="10" Width="150" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="2">
-                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Publishers}" AutoGenerateColumns="False">
+                <DataGrid x:Name="dataGridDashboard" ItemsSource="{Binding Publishers}" AutoGenerateColumns="False" SelectedValue="{Binding SelectedPublisher}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Width="*">
+                        <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Id}">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Name" Width="*">
+                        <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Email" Width="*">
+                        <DataGridTextColumn Header="Email" Width="*" Binding="{Binding Email}">
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Address" Width="*">
+                        <DataGridTextColumn Header="Address" Width="*" Binding="{Binding Address}">
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
@@ -55,9 +55,9 @@
 
 
             <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Height="40" Content="R" Command="{Binding LoadPublishers}"/>
-            <Button Grid.Row="3" Content="Add Instance" FontSize="20"/>
-            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True"/>
-            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True"/>
+            <Button Grid.Row="3" Content="Add Instance" FontSize="20" Command="{Binding AddPublisher}"/>
+            <Button Grid.Row="4" Content="Update Instance" FontSize="20" IsEnabled="True" Command="{Binding UpdatePublisher}"/>
+            <Button Grid.Row="5" Content="Delete Instance" FontSize="20" IsEnabled="True" Command="{Binding DeletePublisher}"/>
             <Button Grid.Row="6" Content="Duplicate" FontSize="20"/>
 
         </Grid>

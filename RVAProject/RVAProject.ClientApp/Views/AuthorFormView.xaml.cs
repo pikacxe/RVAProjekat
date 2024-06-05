@@ -18,9 +18,9 @@ namespace RVAProject.ClientApp.Views
     /// <summary>
     /// Interaction logic for AddAuthorView.xaml
     /// </summary>
-    public partial class AddAuthorView : UserControl
+    public partial class AuthorFormView : UserControl
     {
-        public AddAuthorView()
+        public AuthorFormView()
         {
             InitializeComponent();
         }
