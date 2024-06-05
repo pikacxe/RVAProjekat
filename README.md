@@ -35,20 +35,20 @@ Zadate podatke ne menjati:
 - [X] Prijava korisnika
 - [ ] Odjava korisnika
 - [X] Kreiranje inicialnog admina ('admin', 'admin')
-  - [ ] Admin moze izvrsavati sve akcije
-- [ ] Kreairanje korisnika od strane admina (dozvoljeno kreiranje admina)
-- [ ] Azuriranje profila (id, username, password, name, lastName)
-- [ ] Prikaz svih izdavaca
-  - [ ] Pomocni prikaz knjiga
-  - [ ] Pomocni prikaz autora
+  - [X] Admin moze izvrsavati sve akcije
+- [X] Kreairanje korisnika od strane admina (dozvoljeno kreiranje admina)
+- [X] Azuriranje profila (id, username, password, name, lastName)
+- [X] Prikaz svih izdavaca
+  - [X] Pomocni prikaz knjiga
+  - [X] Pomocni prikaz autora
 - [ ] Pretraga izdavaca
-- [ ] CRUD
-  - [ ] Izdavaca
-  - [ ] Knjiga
-  - [ ] Autora
+- [X] CRUD
+  - [X] Izdavaca
+  - [X] Knjiga
+  - [X] Autora
 - [ ] Dupliranje izdavaca
-- [ ] Osvezavanje prikaza (na zahtev)
-- [ ] Omoguciti rad vise instanci programa (bar 2 korisnika istovremeno)
+- [X] Osvezavanje prikaza (na zahtev)
+- [X] Omoguciti rad vise instanci programa (bar 2 korisnika istovremeno)
 - [ ] Detektovanje konfikta (DbUpdateConcurrencyException)
   - [ ] Odbaci svoje izmene (Reload)
   - [ ] Odbaci tudje izmene (Overwrite)
