@@ -1,38 +1,42 @@
 ﻿using RVAProject.ClientApp.Modules;
+using RVAProject.ClientApp.Services;
 using RVAProject.Common.DTOs.UserDTO;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows;
+using RVAProject.ClientApp.Services.Impl;
+using System;
+using RVAProject.Common;
+using RVAProject.Common.Entities;
 
 namespace RVAProject.ClientApp.ViewModels
 {
     internal class LoginViewModel : BindableBase
     {
+        private readonly IClientUserService _service;
         public LoginViewModel()
         {
             Title = "Login";
+            _service = new ClientUserService();
             LoginCommand = new AppAsyncCommand(HandleLogin);
-            ToRegisterView = new AppCommand(HandleRedirect);
         }
 
         private async Task HandleLogin()
         {
-            UserService.UserServiceClient userClient = new UserService.UserServiceClient();
-
             var token = "";
             try
             {
-                token = await userClient.LogInAsync(new LogInRequest { Username = Username, Password = Password });
-                NavigationService.Instance.NavigateTo(ViewModelFactory.CreateViewModel("dashboard"));
+                token = await _service.LoginAsync(new LogInRequest { Username = Username, Password = Password });
+                NavigationService.Instance.NavigateTo("dashboard");
             }
-            catch (FaultException ex)
+            catch (FaultException fe)
             {
-                MessageBox.Show($"{ex.Message}");
+                MessageBox.Show($"{fe.Message}");
             }
-        }
-        private void HandleRedirect()
-        {
-            NavigationService.Instance.NavigateTo(ViewModelFactory.CreateViewModel("register"));
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}");   
+            }
         }
 
         private string username;

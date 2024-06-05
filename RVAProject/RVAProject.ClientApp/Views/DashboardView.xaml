@@ -5,12 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RVAProject.ClientApp.Views"
              xmlns:viewModel="clr-namespace:RVAProject.ClientApp.ViewModels"
+             xmlns:views="clr-namespace:RVAProject.ClientApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <UserControl.DataContext>
         <viewModel:DashboardViewModel/>
     </UserControl.DataContext>
-    <Grid>
-        <TextBlock Text="Hello from dashboard"/>
-    </Grid>
+    <TabControl SelectedIndex="0" >
+        <TabItem Header="Author Dashboard">
+            <views:AuthorDashboard/>
+        </TabItem>
+        <TabItem Header="Publisher Dashboard">
+            <views:PublisherDashboard/>
+        </TabItem>
+        <TabItem Header="Book Dashboard">
+            <views:BookDashboard/>
+        </TabItem>
+        <TabItem Header="User Dashboard">
+            <views:UserDashboard/>
+        </TabItem>
+    </TabControl>
 </UserControl>

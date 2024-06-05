@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RVAProject.ClientApp.Views
 {
     /// <summary>
-    /// Interaction logic for RegisterView.xaml
+    /// Interaction logic for AddUser.xaml
     /// </summary>
-    public partial class RegisterView : UserControl
+    public partial class AddUser : UserControl
     {
-        public RegisterView()
+        public AddUser()
         {
             InitializeComponent();
         }

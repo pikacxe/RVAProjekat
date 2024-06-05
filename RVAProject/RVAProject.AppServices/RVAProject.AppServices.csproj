@@ -165,7 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RVAProject.Common\RVAProject.Common.csproj">
-      <Project>{65AA98B6-A2B8-4776-B926-437E6312958E}</Project>
+      <Project>{65aa98b6-a2b8-4776-b926-437e6312958e}</Project>
       <Name>RVAProject.Common</Name>
     </ProjectReference>
   </ItemGroup>

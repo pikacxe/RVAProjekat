@@ -3,11 +3,11 @@
 namespace RVAProject.ClientApp.Views
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for UpdateUser.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class UpdateUser : UserControl
     {
-        public LoginView()
+        public UpdateUser()
         {
             InitializeComponent();
         }

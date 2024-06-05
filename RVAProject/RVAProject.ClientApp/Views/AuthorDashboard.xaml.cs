@@ -3,11 +3,11 @@
 namespace RVAProject.ClientApp.Views
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for AuthorDashboard.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class AuthorDashboard : UserControl
     {
-        public LoginView()
+        public AuthorDashboard()
         {
             InitializeComponent();
         }

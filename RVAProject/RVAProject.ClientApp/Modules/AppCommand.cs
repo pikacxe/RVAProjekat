@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace RVAProject.ClientApp.Modules
 {
-    internal class AppCommand : ICommand
+    public class AppCommand : ICommand
     {
         private readonly Action _executeMethod;
         private readonly Func<bool> _canExecuteMethod;

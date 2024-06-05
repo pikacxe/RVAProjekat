@@ -144,19 +144,57 @@
     <Compile Include="Modules\AppCommand.cs" />
     <Compile Include="NavigationService.cs" />
     <Compile Include="Modules\ViewModelFactory.cs" />
+    <Compile Include="Services\IClientAuthorService.cs" />
+    <Compile Include="Services\IClientBookService.cs" />
+    <Compile Include="Services\Impl\ClientAuthorService.cs" />
+    <Compile Include="Services\Impl\ClientBookService.cs" />
+    <Compile Include="Services\Impl\ClientPublisherService.cs" />
+    <Compile Include="Services\Impl\ClientUserService.cs" />
+    <Compile Include="Services\IClientPublisherService.cs" />
+    <Compile Include="Services\IClientUserService.cs" />
+    <Compile Include="ViewModels\Author\AuthorDashboardViewModel.cs" />
+    <Compile Include="ViewModels\Author\AuthorFormViewModel.cs" />
     <Compile Include="ViewModels\BindableBase.cs" />
+    <Compile Include="ViewModels\Book\BookDashboardViewModel.cs" />
+    <Compile Include="ViewModels\Book\BookFormViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Publisher\PublisherDashboardViewModel.cs" />
+    <Compile Include="ViewModels\Publisher\PublisherFormViewModel.cs" />
+    <Compile Include="ViewModels\User\UserFormViewModel.cs" />
+    <Compile Include="Views\AuthorFormView.xaml.cs">
+      <DependentUpon>AuthorFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PublisherFormView.xaml.cs">
+      <DependentUpon>PublisherFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookFormView.xaml.cs">
+      <DependentUpon>BookFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AuthorDashboard.xaml.cs">
+      <DependentUpon>AuthorDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookDashboard.xaml.cs">
+      <DependentUpon>BookDashboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RegisterView.xaml.cs">
-      <DependentUpon>RegisterView.xaml</DependentUpon>
+    <Compile Include="Views\PublisherDashboard.xaml.cs">
+      <DependentUpon>PublisherDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserFormView.xaml.cs">
+      <DependentUpon>UserFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateUser.xaml.cs">
+      <DependentUpon>UpdateUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserDashboard.xaml.cs">
+      <DependentUpon>UserDashboard.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +208,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AuthorFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PublisherFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BookFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AuthorDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BookDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,7 +236,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RegisterView.xaml">
+    <Page Include="Views\PublisherDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,15 +364,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RVAProject.Common\RVAProject.Common.csproj">
-      <Project>{65aa98b6-a2b8-4776-b926-437e6312958e}</Project>
-      <Name>RVAProject.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
@@ -368,6 +430,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\UserService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RVAProject.Common\RVAProject.Common.csproj">
+      <Project>{65aa98b6-a2b8-4776-b926-437e6312958e}</Project>
+      <Name>RVAProject.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\AuthorService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

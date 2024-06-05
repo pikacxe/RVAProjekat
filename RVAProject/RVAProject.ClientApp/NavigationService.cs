@@ -1,12 +1,7 @@
 ﻿using RVAProject.ClientApp.Modules;
 using RVAProject.ClientApp.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace RVAProject.ClientApp
@@ -42,8 +37,9 @@ namespace RVAProject.ClientApp
             NavigateBackCommand = new AppCommand(NavigateBack);
         }
 
-        public void NavigateTo(BindableBase viewModel)
+        public void NavigateTo(string viewModelName, object model = null)
         {
+            var viewModel = ViewModelFactory.CreateViewModel(viewModelName, model);
             previousView = CurrentView;
             CurrentView = viewModel;
         }
