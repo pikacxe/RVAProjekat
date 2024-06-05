@@ -1,13 +1,11 @@
 ﻿using RVAProject.ClientApp.Modules;
 using RVAProject.ClientApp.Services;
+using RVAProject.ClientApp.Services.Impl;
 using RVAProject.Common.DTOs.UserDTO;
+using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows;
-using RVAProject.ClientApp.Services.Impl;
-using System;
-using RVAProject.Common;
-using RVAProject.Common.Entities;
 
 namespace RVAProject.ClientApp.ViewModels
 {
@@ -36,7 +34,7 @@ namespace RVAProject.ClientApp.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}");   
+                MessageBox.Show($"{ex.Message}");
             }
         }
 
