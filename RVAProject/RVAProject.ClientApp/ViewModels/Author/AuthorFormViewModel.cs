@@ -1,4 +1,5 @@
 ﻿using RVAProject.ClientApp.AuthorService;
+using RVAProject.ClientApp.Helpers;
 using RVAProject.ClientApp.Modules;
 using RVAProject.Common.DTOs.AuthorDTO;
 using System;
@@ -45,6 +46,7 @@ namespace RVAProject.ClientApp.ViewModels
                         PenName = CurrentAuthor.PenName,
                         HasNobelPrize = CurrentAuthor.HasNobelPrize
                     }, NavigationService.Instance.serviceToken);
+                    Logger.Info(" Autor updated");
                 }
                 else
                 {
@@ -54,11 +56,12 @@ namespace RVAProject.ClientApp.ViewModels
                         PenName = CurrentAuthor.PenName,
                         HasNobelPrize = CurrentAuthor.HasNobelPrize
                     }, NavigationService.Instance.serviceToken);
+                    Logger.Info(" Autor added");
                 }
             }
             catch (Exception ex)
             {
-                // TODO log error
+                Logger.Error(" Update or add author error");
             }
         }
     }

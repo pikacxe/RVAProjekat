@@ -8,6 +8,7 @@ using RVAProject.ClientApp.Services.Impl;
 using System;
 using RVAProject.Common;
 using RVAProject.Common.Entities;
+using RVAProject.ClientApp.Helpers;
 
 namespace RVAProject.ClientApp.ViewModels
 {

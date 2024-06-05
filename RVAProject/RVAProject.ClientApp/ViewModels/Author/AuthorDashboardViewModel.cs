@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using RVAProject.ClientApp.Helpers;
 
 namespace RVAProject.ClientApp.ViewModels
 {
@@ -48,10 +49,12 @@ namespace RVAProject.ClientApp.ViewModels
             {
                 await _service.DeleteAuthorAsync(selectedAuthor.Id, NavigationService.Instance.serviceToken);
                 Authors.Remove(selectedAuthor);
+                Logger.Info(" Author deleted");
                 selectedAuthor = default;
             }
             catch(Exception e)
             {
+                Logger.Error(" Author delete error");
                 Console.WriteLine(e.Message);
             }
         }
@@ -59,11 +62,13 @@ namespace RVAProject.ClientApp.ViewModels
         private void HandleUpdateAuthor()
         {
             NavigationService.Instance.NavigateTo("updateAuthor", selectedAuthor);
+            Logger.Info(" Authors updated");
         }
 
         private void HandleAddAuthor()
         {
             NavigationService.Instance.NavigateTo("addAuthor");
+            Logger.Info(" Authors added");
         }
 
         private async Task HandleLoadAuthors()
@@ -75,6 +80,7 @@ namespace RVAProject.ClientApp.ViewModels
             {
                 Authors.Add(author);
             }
+            Logger.Info(" Authors loaded");
         }
     }
 }

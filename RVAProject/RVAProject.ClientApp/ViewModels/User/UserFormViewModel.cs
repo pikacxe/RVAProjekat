@@ -1,4 +1,5 @@
-﻿using RVAProject.ClientApp.Modules;
+﻿using RVAProject.ClientApp.Helpers;
+using RVAProject.ClientApp.Modules;
 using RVAProject.ClientApp.UserService;
 using RVAProject.Common.DTOs.UserDTO;
 using System;
@@ -50,7 +51,7 @@ namespace RVAProject.ClientApp.ViewModels
                         FirstName = CurrentUser.FirstName,
                         LastName = CurrentUser.LastName,
                     },NavigationService.Instance.serviceToken);
-                    // TODO log success
+                    Logger.Info($"User named {CurrentUser.FirstName} updated");
                 }
                 else
                 {
@@ -61,12 +62,12 @@ namespace RVAProject.ClientApp.ViewModels
                         FirstName = CurrentUser.FirstName,
                         LastName = CurrentUser.LastName,
                     }, NavigationService.Instance.serviceToken);
-                    // TODO log success
+                    Logger.Info($"User named {CurrentUser.FirstName} added");
                 }
             }
             catch(Exception ex)
             {
-                // TODO log error
+                Logger.Error($"User add or update error");
             }
         }
     }

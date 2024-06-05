@@ -1,4 +1,6 @@
-﻿using RVAProject.ClientApp.Modules;
+﻿
+using RVAProject.ClientApp.Helpers;
+using RVAProject.ClientApp.Modules;
 using RVAProject.ClientApp.Services;
 using RVAProject.ClientApp.Services.Impl;
 using RVAProject.Common.DTOs.BookDTO;
@@ -49,22 +51,25 @@ namespace RVAProject.ClientApp.ViewModels
             {
                 await _service.DeleteBookAsync(selectedBook.Id, NavigationService.Instance.serviceToken);
                 Books.Remove(selectedBook);
+                Logger.Info($"Book with title: {selectedBook.Title} removed");
                 selectedBook = default;
             }
             catch (Exception e)
             {
-                //TODO log error
+                Logger.Error("Removing book error");
             }
         }
 
         private void HandleUpdateBook()
         {
             NavigationService.Instance.NavigateTo("updateBook", selectedBook);
+            Logger.Info($"Book with title {selectedBook.Title} updated");
         }
 
         private void HandleAddBook()
         {
             NavigationService.Instance.NavigateTo("addBook");
+            Logger.Info($"Book added");
         }
 
         private async Task HandleLoadBooks(IEnumerable<BookInfo> enumerable)
@@ -75,6 +80,7 @@ namespace RVAProject.ClientApp.ViewModels
             {
                 Books.Add(book);
             }
+            Logger.Info($"Books loaded");
         }
 
     }

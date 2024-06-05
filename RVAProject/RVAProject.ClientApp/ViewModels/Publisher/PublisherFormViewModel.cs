@@ -1,4 +1,5 @@
-﻿using RVAProject.ClientApp.Modules;
+﻿using RVAProject.ClientApp.Helpers;
+using RVAProject.ClientApp.Modules;
 using RVAProject.ClientApp.PublisherService;
 using RVAProject.Common.DTOs.PublisherDTO;
 using System;
@@ -49,6 +50,7 @@ namespace RVAProject.ClientApp.ViewModels
                         Address = CurrentPublisher.Address,
                         Email = currentPublisher.Email,
                     }, NavigationService.Instance.serviceToken);
+                    Logger.Info($" Publisher named {CurrentPublisher.Name} updated");
                 }
                 else
                 {
@@ -58,11 +60,12 @@ namespace RVAProject.ClientApp.ViewModels
                         Address = CurrentPublisher.Address,
                         Email = currentPublisher.Email,
                     }, NavigationService.Instance.serviceToken);
+                    Logger.Info($" Publisher named {CurrentPublisher.Name} added");
                 }
             }
             catch (Exception ex)
             {
-                // TODO log error
+                Logger.Error(" Publisher update or add error");
             }
         }
 

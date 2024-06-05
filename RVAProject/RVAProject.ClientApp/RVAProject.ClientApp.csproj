@@ -141,6 +141,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Logger.cs" />
     <Compile Include="Modules\AppCommand.cs" />
     <Compile Include="NavigationService.cs" />
     <Compile Include="Modules\ViewModelFactory.cs" />
